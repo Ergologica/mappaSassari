@@ -1,23 +1,87 @@
 <!DOCTYPE html>
-
 <html lang="it">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Centro Storico di Sassari</title>
 <link href="assets/css/style.css" rel="stylesheet"/>
-    /* Stile per le immagini */
-        <style>
+    <style>
+        /* Stile per le immagini */
+        .map-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
         .map-img {
             width: 100%; /* L'immagine occuperà l'intera larghezza del contenitore */
-            max-width: 400px; /* Dimensione massima per evitare che diventi troppo grande */
+            max-width: 300px; /* Dimensione massima per evitare che diventi troppo grande */
             height: auto; /* Mantiene le proporzioni originali */
             margin: 20px auto; /* Centra l'immagine orizzontalmente */
             display: block; /* Per rendere l'immagine un blocco di livello */
             border-radius: 10px; /* Aggiunge angoli arrotondati */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per un aspetto professionale */
         }
-        </style>
+        
+        /* Stile per la navbar e il menu hamburger */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* Media queries per adattare il comportamento del menu su dispositivi mobili */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgba(51, 51, 51, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                padding: 20px;
+                z-index: 999;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
 <!-- Navbar -->
@@ -38,7 +102,9 @@
 <section class="section" id="quartiere-details">
 <h2>Centro Storico di Sassari</h2>
 <p>Il centro storico di Sassari rappresenta il cuore della città, sviluppato in maniera geometrica per adattarsi alle caratteristiche del territorio e alla storia. Le aree principali includono Piazza Sant'Antonio, Corso Vico, Piazza Castello, e molti altri punti di interesse culturale e sociale.</p>
-<img alt="Mappa del Centro Storico di Sassari" src="assets/images/mappa.jpg"/>
+<div class="map-container">
+    <img alt="Mappa del Centro Storico di Sassari" class="map-img" src="assets/images/mappa.jpg"/>
+</div>
 </section>
 <!-- Punti di Ritrovo -->
 <section class="section" id="punti-ritrovo">
@@ -115,6 +181,7 @@
                     const navLinks = document.getElementById("nav-links");
                     navLinks.classList.remove("show");
                 }
-                </script><script src="assets/js/main.js"></script>
+</script><script src="assets/js/main.js"></script>
 </body>
 </html>
+
