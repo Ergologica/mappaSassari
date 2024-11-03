@@ -18,31 +18,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 5px 20px;
             z-index: 1000;
+        }
+        nav {
+            display: flex;
+            align-items: center;
         }
         nav a {
             color: #fff;
-            margin-left: 20px;
+            margin-left: 10px;
             text-decoration: none;
+            font-size: 0.9em;
         }
         nav a:hover {
             text-decoration: underline;
         }
-        .quartieri-grid {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            margin-top: 80px; /* Margine per compensare la navbar fissa */
-        }
-        .quartiere-card {
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        /* Navbar mobile */
         .menu-icon {
             display: none;
             cursor: pointer;
@@ -60,35 +51,31 @@
         .nav-links.show {
             display: flex;
         }
-
-        /* Footer */
         footer {
             background: #333;
             color: white;
             text-align: center;
             padding: 20px;
             width: 100%;
+            position: relative;
         }
         .social-links {
             margin-top: 10px;
         }
         .social-links a {
             margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
         }
-
-        /* Media Queries */
+        .social-links a:hover {
+            color: #f1c40f;
+        }
         @media (max-width: 768px) {
-            .map-img {
-                width: 80%;
-            }
             .menu-icon {
                 display: block;
             }
             nav {
                 display: none;
-            }
-            .quartieri-grid {
-                padding: 10px;
             }
         }
     </style>
@@ -120,7 +107,7 @@
 
     <!-- Intestazione Vivace -->
     <section class="hero-header" style="margin-top: 80px;">
-        <h1>Benvenuti all'Educativa di Strada Sassari</h1>
+        <h1>Educativa di Strada Sassari</h1>
         <p>Un punto di incontro per i giovani e la comunità</p>
     </section>
 
