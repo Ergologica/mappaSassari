@@ -10,6 +10,8 @@
 <meta property="og:description" content="Informazioni complete sul centro storico di Sassari, inclusi quartieri, servizi, e attività per adolescenti e famiglie.">
 <meta property="og:image" content="assets/images/mappa.jpg">
 <meta property="og:url" content="https://example.com">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMrHgUl36bUlbqgD5KwZxGuW+6U/t5r1C9e8h1G" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+ER6L8k5z2W1p0r7RzZ96S0lU4l+" crossorigin="anonymous">
 <link href="assets/css/style.css" rel="stylesheet"/>
     <style>
         /* Stile per le immagini */
@@ -34,23 +36,15 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: #333;
+            background: rgba(51, 51, 51, 0.8);
             color: #fff;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            z-index: 100;
+            z-index: 1000;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-        }
-
         .menu-icon {
             display: none;
             font-size: 24px;
@@ -58,29 +52,47 @@
             color: #fff;
         }
 
-        /* Media queries per adattare il comportamento del menu su dispositivi mobili */
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007BFF;
+        }
+
+        /* Stile per il menu hamburger */
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: rgba(51, 51, 51, 0.9);
+            width: 100%;
+            padding: 10px 20px;
+        }
+        
+        .nav-links a {
+            margin: 10px 0;
+        }
+
+        /* Mostra il menu hamburger su schermi piccoli */
         @media (max-width: 768px) {
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-                background: rgba(51, 51, 51, 0.9);
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                padding: 20px;
-                max-height: 300px;
-                opacity: 0;
-                z-index: 100;
-            }
-
-            .nav-links.show {
-                max-height: 600px;
-                opacity: 1;
-            }
-
             .menu-icon {
                 display: block;
+            }
+            nav {
+                display: none;
+            }
+            .nav-links.show {
+                display: flex;
             }
         }
 
@@ -154,7 +166,8 @@
 <!-- Navbar -->
 <header>
     <div class="logo">Logo Sassari</div>
-    <nav class="nav-links" id="nav-links">
+    <div class="menu-icon" onclick="toggleMenu()" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></div>
+    <nav>
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="quartieri.html">Quartieri</a>
         <a class="nav-link" href="servizi-comunali.html">Servizi Comunali</a>
@@ -162,12 +175,19 @@
         <a class="nav-link" href="#eventi">Eventi e Cultura</a>
         <a class="nav-link" href="#contatti">Contatti</a>
     </nav>
-    <div class="menu-icon" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</div>
+    <div class="nav-links" id="nav-links">
+        <a class="nav-link" href="index.html" onclick="closeMenu()">Home</a>
+        <a class="nav-link" href="quartieri.html" onclick="closeMenu()">Quartieri</a>
+        <a class="nav-link" href="servizi-comunali.html" onclick="closeMenu()">Servizi Comunali</a>
+        <a class="nav-link" href="#volontariat" onclick="closeMenu()">Volontariato</a>
+        <a class="nav-link" href="#eventi" onclick="closeMenu()">Eventi e Cultura</a>
+        <a class="nav-link" href="#contatti" onclick="closeMenu()">Contatti</a>
+    </div>
 </header>
 <!-- Main content wrapper -->
-<div class="main-content" style="padding-top: 80px;">
-    <div style="text-align: center; margin-bottom: 20px;">
-        <a href="quartieri.html" class="button-link">Vai ai Quartieri</a>
+<div class="container main-content" style="padding-top: 80px;">
+    <div class="text-center mb-4">
+        <a href="quartieri.html" class="btn btn-primary">Vai ai Quartieri</a>
     </div>
     <!-- Introduzione -->
     <section class="section" id="quartiere-details">
@@ -180,18 +200,24 @@
     <!-- Punti di Ritrovo -->
     <section class="section info-container" id="punti-ritrovo">
         <h3>Punti di Ritrovo per Adolescenti</h3>
-        <div class="grid">
-            <div class="card">
-                <h4>Piazza Santa Caterina</h4>
-                <p>Piazza ZTL con WiFi gratis, ritrovo di giovani, concerti e giochi.</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <h4>Piazza Santa Caterina</h4>
+                    <p>Piazza ZTL con WiFi gratis, ritrovo di giovani, concerti e giochi.</p>
+                </div>
             </div>
-            <div class="card">
-                <h4>Piazza Sant'Antonio</h4>
-                <p>Area frequentata da persone di etnie differenti, punto di ritrovo per stranieri.</p>
+            <div class="col-md-4">
+                <div class="card">
+                    <h4>Piazza Sant'Antonio</h4>
+                    <p>Area frequentata da persone di etnie differenti, punto di ritrovo per stranieri.</p>
+                </div>
             </div>
-            <div class="card">
-                <h4>Piazza Castello</h4>
-                <p>Adibita a famiglie, ben illuminata, frequentata da adolescenti e gruppi di giovani.</p>
+            <div class="col-md-4">
+                <div class="card">
+                    <h4>Piazza Castello</h4>
+                    <p>Adibita a famiglie, ben illuminata, frequentata da adolescenti e gruppi di giovani.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -199,9 +225,9 @@
     <section class="section info-container" id="tempo-libero">
         <h3>Attività per il Tempo Libero</h3>
         <h4>Organizzate</h4>
-        <ul>
-            <li>ASD Centro Storico Sassari Calcio - <a href="mailto:asdcentrostorico.ss@gmail.com">asdcentrostorico.ss@gmail.com</a></li>
-            <li>Agesci Gruppo Scout SS2 - Via Artiglieria, Chiesa Santa Maria di Betlem</li>
+        <ul class="list-group">
+            <li class="list-group-item">ASD Centro Storico Sassari Calcio - <a href="mailto:asdcentrostorico.ss@gmail.com">asdcentrostorico.ss@gmail.com</a></li>
+            <li class="list-group-item">Agesci Gruppo Scout SS2 - Via Artiglieria, Chiesa Santa Maria di Betlem</li>
         </ul>
         <h4>Non Organizzate</h4>
         <p>Area giochi per bambini in Via Tavolara. Gli adolescenti utilizzano le aree appartate per ritrovarsi.</p>
@@ -209,53 +235,61 @@
     <!-- Servizi al Cittadino -->
     <section class="section info-container" id="servizi">
         <h3>Servizi al Cittadino</h3>
-        <ul>
-            <li><strong>Punto Salute di Comunità</strong> - Via Casaggia n° 10, Tel: 079/279962, 079/279963</li>
-            <li><strong>Caritas</strong> - Buste alimentari in Largo Seminario 6, Mensa in Via Luigi Rolando 5</li>
-            <li><strong>Informa Giovani</strong> - Piazza Santa Caterina 25, Tel: 800327171</li>
-            <li><strong>Biblioteca Comunale</strong> - Piazza Tola 1, Tel: 079 273780, <a href="mailto:biblioteca@comune.sassari.it">biblioteca@comune.sassari.it</a></li>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Punto Salute di Comunità</strong> - Via Casaggia n° 10, Tel: 079/279962, 079/279963</li>
+            <li class="list-group-item"><strong>Caritas</strong> - Buste alimentari in Largo Seminario 6, Mensa in Via Luigi Rolando 5</li>
+            <li class="list-group-item"><strong>Informa Giovani</strong> - Piazza Santa Caterina 25, Tel: 800327171</li>
+            <li class="list-group-item"><strong>Biblioteca Comunale</strong> - Piazza Tola 1, Tel: 079 273780, <a href="mailto:biblioteca@comune.sassari.it">biblioteca@comune.sassari.it</a></li>
         </ul>
     </section>
     <!-- Reti Urbane -->
     <section class="section info-container" id="reti-urbane">
         <h3>Reti Urbane e Trasporti</h3>
-        <ul>
-            <li><strong>Taxi:</strong> Stazione ferroviaria e Piazza d'Italia.</li>
-            <li><strong>Capolinea Tram:</strong> Via Tavolara.</li>
-            <li><strong>Linea 8:</strong> Copre ampiamente il centro storico, collegando Piazza Stazione con Piazzale Segni e attraversando vie importanti come Corso Vico e Piazza d’Italia. Partenze regolari, rendendo il centro facilmente accessibile.</li>
-            <li><strong>Linea VV:</strong> Passa per Piazza Santa Maria e Corso Regina Margherita, importante per l'accesso agli uffici amministrativi e il Tribunale dei Minori.</li>
-            <li><strong>Linea CS:</strong> Collega il centro storico con quartieri come Lu Fangazzu e Viale Dante, attraversando Corso Trinità e Viale Umberto, ideale per residenti e visitatori del centro.</li>
-            <li><strong>Linee di autobus:</strong> BB/MA/MP per Platamona, BA per Sacchetto, e molte altre linee che collegano Sassari con le periferie e il centro storico.</li>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Taxi:</strong> Stazione ferroviaria e Piazza d'Italia.</li>
+            <li class="list-group-item"><strong>Capolinea Tram:</strong> Via Tavolara.</li>
+            <li class="list-group-item"><strong>Linea 8:</strong> Copre ampiamente il centro storico, collegando Piazza Stazione con Piazzale Segni e attraversando vie importanti come Corso Vico e Piazza d’Italia. Partenze regolari, rendendo il centro facilmente accessibile.</li>
+            <li class="list-group-item"><strong>Linea VV:</strong> Passa per Piazza Santa Maria e Corso Regina Margherita, importante per l'accesso agli uffici amministrativi e il Tribunale dei Minori.</li>
+            <li class="list-group-item"><strong>Linea CS:</strong> Collega il centro storico con quartieri come Lu Fangazzu e Viale Dante, attraversando Corso Trinità e Viale Umberto, ideale per residenti e visitatori del centro.</li>
+            <li class="list-group-item"><strong>Linee di autobus:</strong> BB/MA/MP per Platamona, BA per Sacchetto, e molte altre linee che collegano Sassari con le periferie e il centro storico.</li>
         </ul>
     </section>
     <!-- Scuole e Istruzione -->
     <section class="section info-container" id="scuole">
         <h3>Scuole e Istruzione nel Quartiere</h3>
-        <ul>
-            <li><strong>Asilo Comunale</strong> - Via Sebastiano Satta 4</li>
-            <li><strong>Istituto Comprensivo San Donato</strong> - Scuola primaria e infanzia, Tel: 0792845002, <a href="mailto:ssic85200n@istruzione.it">ssic85200n@istruzione.it</a></li>
-            <li><strong>Scuola Media Statale</strong> - Via Alessio Fontana 3</li>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Asilo Comunale</strong> - Via Sebastiano Satta 4</li>
+            <li class="list-group-item"><strong>Istituto Comprensivo San Donato</strong> - Scuola primaria e infanzia, Tel: 0792845002, <a href="mailto:ssic85200n@istruzione.it">ssic85200n@istruzione.it</a></li>
+            <li class="list-group-item"><strong>Scuola Media Statale</strong> - Via Alessio Fontana 3</li>
         </ul>
     </section>
 </div>
 <!-- Footer -->
-<footer>
+<footer class="text-center py-4">
     <p>© 2023 Comune di Sassari. Tutti i diritti riservati.</p>
     <div>
-        <a href="https://www.facebook.com" aria-label="Facebook link">Facebook</a> |
-        <a href="https://www.twitter.com" aria-label="Twitter link">Twitter</a> |
+        <a href="https://www.facebook.com" aria-label="Facebook link"><i class="fab fa-facebook"></i> Facebook</a> |
+        <a href="https://www.twitter.com" aria-label="Twitter link"><i class="fab fa-twitter"></i> Twitter</a> |
         <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
     </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-kaB7P+9x7B/zF1U+hR+Tf5HrA7ik6l5M9Utdr2vBZD2ELk/OPv7Vh04MC0ZXgi8s" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-uj6Hn8U5hPdS5o0pbl3U5A7Erfw+/H8iG+T5+qPUuq9lke67tbz0XouEUW+tk6VH" crossorigin="anonymous"></script>
 <script src="assets/js/main.js" defer></script>
 <script>
     function toggleMenu() {
         const navLinks = document.getElementById("nav-links");
         navLinks.classList.toggle("show");
     }
+    
+    function closeMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.remove("show");
+    }
 </script>
 </body>
 </html>
+
 
 
 
