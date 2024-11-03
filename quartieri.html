@@ -5,50 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quartieri di Sassari</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        /* Stile per la mappa */
-        .map-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 20px;
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f5f5f5;
+            color: #333;
         }
-        .map-img {
-            width: 30%;
-            height: auto;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        h2, h3, h4, h5 {
+            font-family: 'Lobster', cursive;
+            color: #2c3e50;
+        }
+        .section {
+            padding: 60px 0;
         }
         
-        /* Stili generali */
+        /* Navbar Styles */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(51, 51, 51, 0.8);
+            background: linear-gradient(90deg, rgba(51, 51, 51, 0.9), rgba(33, 150, 243, 0.8));
             color: #fff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 10px 30px;
             z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
         nav a {
             color: #fff;
-            margin-left: 20px;
+            margin-left: 25px;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #ffeb3b;
         }
-        .quartieri-grid {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            margin-top: 80px; /* Margine per compensare la navbar fissa */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
         }
-        .quartiere-card {
+        
+        /* Navbar for larger devices */
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+            .menu-icon {
+                display: none;
+            }
+        }
+
+        /* Section Styles */
+        .container {
+            max-width: 1140px;
+        }
+        .quartiere-box {
             margin: 10px 0;
             border: 1px solid #ccc;
             padding: 20px;
@@ -56,67 +77,56 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
-        .quartiere-card:hover {
+        .quartiere-box:hover {
             transform: scale(1.02);
-        }
-
-        .quartiere-card h3 {
-            color: #333;
-        }
-
-        /* Navbar mobile */
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-        }
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background: rgba(51, 51, 51, 0.9);
-            width: 100%;
-            padding: 10px 20px;
-        }
-        .nav-links.show {
-            display: flex;
         }
 
         /* Footer */
         footer {
-            background: #333;
-            color: white;
+            background: #2c3e50;
+            color: #ffffff;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             width: 100%;
-            position: relative;
-        }
-        .social-links {
-            margin-top: 10px;
         }
         .social-links a {
-            margin: 0 10px;
-            color: #fff;
-            text-decoration: none;
+            margin: 0 15px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+            font-size: 1.5rem;
         }
         .social-links a:hover {
-            color: #f1c40f;
+            color: #ffeb3b;
         }
 
         /* Media Queries */
         @media (max-width: 768px) {
-            .map-img {
-                width: 80%;
-            }
             .menu-icon {
                 display: block;
             }
             nav {
                 display: none;
             }
-            .quartieri-grid {
-                padding: 10px;
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: rgba(33, 150, 243, 0.9);
+                width: 200px;
+                padding: 20px;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .nav-link {
+                padding: 10px 0;
+                text-align: left;
+                transition: background 0.3s ease;
+            }
+            .nav-link:hover {
+                background: rgba(255, 255, 255, 0.2);
             }
         }
     </style>
@@ -132,142 +142,86 @@
         <nav>
             <a href="index.html" class="nav-link">Home</a>
             <a href="educativa.html" class="nav-link">Educativa di Strada</a>
-            <a href="#quartieri" class="nav-link">Quartieri</a>
+            <a href="quartieri.html" class="nav-link">Quartieri</a>
             <a href="servizi.html" class="nav-link">Servizi</a>
             <a href="#volontariato" class="nav-link">Volontariato</a>
             <a href="#eventi" class="nav-link">Eventi e Cultura</a>
             <a href="#contatti" class="nav-link">Contatti</a>
         </nav>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html" class="nav-link" onclick="closeMenu()">Home</a>
-            <a href="educativa.html" class="nav-link" onclick="closeMenu()">Educativa di Strada</a>
-            <a href="#quartieri" class="nav-link" onclick="closeMenu()">Quartieri</a>
-            <a href="servizi.html" class="nav-link" onclick="closeMenu()">Servizi</a>
-            <a href="#volontariato" class="nav-link" onclick="closeMenu()">Volontariato</a>
-            <a href="#eventi" class="nav-link" onclick="closeMenu()">Eventi e Cultura</a>
-            <a href="#contatti" class="nav-link" onclick="closeMenu()">Contatti</a>
-        </div>
     </header>
 
     <!-- Main content wrapper -->
     <div class="main-content">
-        <!-- Lista dei Quartieri -->
-        <section id="quartieri" class="section">
-            <h2>Quartieri di Sassari</h2>
-            <p>La città di Sassari, situata in Sardegna, è suddivisa in vari quartieri e zone, ciascuno con una propria identità e caratteristiche. Ecco un elenco di alcuni dei principali quartieri di Sassari:</p>
-            <ul>
-                <li><strong>Centro Storico</strong>: È la parte più antica della città, con vicoli stretti e edifici storici. Qui si trovano monumenti importanti come il Duomo di San Nicola e Piazza d'Italia.</li>
-                <li><strong>Latte Dolce</strong>: Quartiere popolare situato nella zona sud della città. È un'area residenziale, sviluppata principalmente negli anni '60 e '70.</li>
-                <li><strong>Li Punti</strong>: Zona residenziale situata nella periferia nord di Sassari. Negli ultimi anni è stata oggetto di espansione urbanistica e offre numerosi servizi.</li>
-                <li><strong>Sant’Orsola</strong>: Quartiere residenziale diviso in Sant’Orsola Nord e Sant’Orsola Sud. È noto per essere una zona tranquilla e con numerose aree verdi.</li>
-                <li><strong>Monte Rosello</strong>: Quartiere storico di Sassari, diviso in diverse sottoparti (Monte Rosello Basso e Monte Rosello Alto). È uno dei quartieri popolari della città.</li>
-                <li><strong>Carbonazzi</strong>: Situato vicino al centro, è una zona residenziale con molte scuole, servizi e parchi.</li>
-                <li><strong>Luna e Sole</strong>: Quartiere moderno e residenziale, considerato una delle zone più benestanti di Sassari, con molti negozi e servizi.</li>
-                <li><strong>San Giuseppe</strong>: Una zona residenziale vicino al centro, conosciuta per la sua tranquillità e per i palazzi in stile moderno.</li>
-                <li><strong>Caniga</strong>: Area semi-rurale nella periferia ovest della città, caratterizzata da un paesaggio collinare.</li>
-                <li><strong>Predda Niedda</strong>: Zona industriale e commerciale di Sassari. Qui si trovano numerosi negozi, centri commerciali e aziende.</li>
-                <li><strong>Baddimanna</strong>: Un piccolo quartiere residenziale situato a sud-ovest della città, vicino a Monte Rosello.</li>
-                <li><strong>Ottava e Taniga</strong>: Frazioni e aree residenziali periferiche, situate rispettivamente a nord-est e a sud-ovest di Sassari.</li>
-                <li><strong>La Landrigga</strong>: Piccola zona residenziale nella periferia rurale della città, vicino a Taniga e Caniga.</li>
-            </ul>
-            <p>Questi quartieri riflettono la diversità urbanistica e culturale della città di Sassari, offrendo sia aree di grande valore storico sia zone moderne e residenziali.</p>
-            <h2> Quartieri di Sassari</h2>
-            <p>Esplora i quartieri di Sassari e scopri le bellezze e le caratteristiche uniche di ogni zona della città.</p>
-            <div class="quartieri-grid">
-                <section id="mappe" class="section">
-                <p>Benvenuti nella pagina dedicata ai quartieri di Sassari! Questa sezione vi guiderà alla scoperta dei diversi quartieri che compongono la città, ciascuno con le proprie caratteristiche uniche, punti di interesse e tradizioni culturali. Potrete esplorare le mappe dei quartieri e scoprire cosa rende speciale ogni angolo di Sassari. Utilizzate questa guida per immergervi nella vita locale, dalle strade storiche del Centro Storico agli spazi verdi di Sacro Cuore.</p>
-                                        <div class="map-container">
-                        <img src="assets/images/duomo.png" alt="Mappa del Centro Storico di Sassari" class="map-img">
-                        <img src="assets/images/duo.png" alt="Mappa del Cuore del quartiere Sacro Cuore" class="map-img">
-                        <img src="assets/images/fronte.png" alt="Mappa della Piazza di Monte Rosello" class="map-img">
-                    </div>
-                </section>
-
-                <!-- Schematizzazione delle informazioni sui quartieri -->
-                <div class="quartiere-card">
-                    <h3>Centro Storico</h3>
-                    <ul>
-                        <li><strong>Descrizione:</strong> Il centro storico di Sassari rappresenta il cuore della città, sviluppato in maniera geometrica per adattarsi alle caratteristiche del territorio e alla storia.</li>
-                        <li><strong>Punti di Interesse:</strong> Monumenti storici, musei, piazze principali.</li>
-                        <li><strong>Caratteristiche:</strong> Architettura storica, strade acciottolate, atmosfera vivace.</li>
-                    </ul>
-                    <a href="centrostorico.html">Scopri di più</a>
-                </div>
-                <div class="quartiere-card">
-                    <h3>Monte Rosello</h3>
-                    <ul>
-                        <li><strong>Descrizione:</strong> Monte Rosello è un quartiere ben conosciuto per i suoi servizi e la vivace comunità.</li>
-                        <li><strong>Punti di Interesse:</strong> Piazza centrale, scuole, parchi.</li>
-                        <li><strong>Caratteristiche:</strong> Quartiere residenziale, attività sociali, negozi locali.</li>
-                    </ul>
-                    <a href="monte.html">Scopri di più</a>
-                </div>
-                <div class="quartiere-card">
-                    <h3>Sacro Cuore</h3>
-                    <ul>
-                        <li><strong>Descrizione:</strong> Sacro Cuore è famoso per le sue aree verdi e il calore della comunità locale.</li>
-                        <li><strong>Punti di Interesse:</strong> Parco pubblico, chiesa di Sacro Cuore.</li>
-                        <li><strong>Caratteristiche:</strong> Verde urbano, spazi ricreativi, senso di comunità.</li>
-                    </ul>
-                    <a href="cuore.html">Scopri di più</a>
-                </div>
-                <div class="quartiere-card">
-                    <h3>Sant'Orsola</h3>
-                    <ul>
-                        <li><strong>Descrizione:</strong> Sant'Orsola è un quartiere residenziale con molte attività culturali.</li>
-                        <li><strong>Punti di Interesse:</strong> Centro culturale, parchi giochi.</li>
-                        <li><strong>Caratteristiche:</strong> Quartiere tranquillo, eventi culturali, famiglie.</li>
-                    </ul>
-                    <a href="orsola.html">Scopri di più</a>
-                </div>
-                <div class="quartiere-card">
-                    <h3>Latte Dolce</h3>
-                    <ul>
-                        <li><strong>Descrizione:</strong> Latte Dolce offre una varietà di servizi ed è conosciuto per le sue tradizioni.</li>
-                        <li><strong>Punti di Interesse:</strong> Mercato locale, scuole, centro sportivo.</li>
-                        <li><strong>Caratteristiche:</strong> Tradizione popolare, commercio locale, infrastrutture sportive.</li>
-                    </ul>
-                    <a href="latte.html">Scopri di più</a>
-                </div>
-                <div class="quartiere-card">
-                    <h3>Santa Maria di Pisa</h3>
-                    <ul>
-                        <li><strong>Descrizione:</strong> Santa Maria di Pisa è un quartiere con una ricca storia e molti punti di interesse.</li>
-                        <li><strong>Punti di Interesse:</strong> Chiesa di Santa Maria, parchi e giardini.</li>
-                        <li><strong>Caratteristiche:</strong> Storia ricca, spazi verdi, vita di quartiere.</li>
-                    </ul>
-                    <a href="pisa.html">Scopri di più</a>
-                </div>
+        <!-- Introduzione ai Quartieri di Sassari -->
+        <section id="quartieri-details" class="section">
+            <div class="container">
+                <h2 class="text-center fw-bold display-4">Quartieri di Sassari</h2>
+                <p class="lead text-center">La città di Sassari è composta da numerosi quartieri, ognuno dei quali rappresenta una parte significativa della storia, cultura e vita sociale della città. Esplora le diverse aree della città e scopri cosa rende unico ogni quartiere.</p>
             </div>
         </section>
 
-        <!-- Contatti -->
-        <section id="contatti" class="section">
-            <h2>Contatti</h2>
-            <p>Hai domande o vuoi partecipare a una delle nostre attività? Contattaci!</p>
-            <form action="#" method="post">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required><br><br>
-                <label for="messaggio">Messaggio:</label><br>
-                <textarea id="messaggio" name="messaggio" rows="5" placeholder="Inserisci il tuo messaggio" required></textarea><br><br>
-                <button type="submit">Invia Messaggio</button>
-            </form>
+        <!-- Dettagli dei Quartieri -->
+        <section class="section my-5">
+            <div class="container">
+                <h3 class="text-center mb-5 fw-bold">Elenco dei Quartieri</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="quartiere-box bg-white p-4 rounded shadow-sm h-100 d-flex flex-column">
+                            <h5 class="fw-bold">Centro Storico</h5>
+                            <p class="flex-grow-1">Il cuore storico di Sassari, con vicoli stretti, edifici antichi e monumenti di grande interesse culturale come il Duomo di San Nicola e Piazza d'Italia.</p>
+                            <a href="centrostorico.html" class="btn btn-primary mt-3">Scopri di più</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quartiere-box bg-white p-4 rounded shadow-sm h-100 d-flex flex-column">
+                            <h5 class="fw-bold">Latte Dolce</h5>
+                            <p class="flex-grow-1">Un quartiere residenziale situato nella zona sud di Sassari, caratterizzato da aree verdi e una vivace vita comunitaria.</p>
+                            <a href="latte.html" class="btn btn-primary mt-3">Scopri di più</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quartiere-box bg-white p-4 rounded shadow-sm h-100 d-flex flex-column">
+                            <h5 class="fw-bold">Sacro Cuore</h5>
+                            <p class="flex-grow-1">Quartiere noto per la sua comunità accogliente e le numerose attività ricreative e sportive disponibili per tutte le età.</p>
+                            <a href="cuore.html" class="btn btn-primary mt-3">Scopri di più</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quartiere-box bg-white p-4 rounded shadow-sm h-100 d-flex flex-column">
+                            <h5 class="fw-bold">Monte Rosello</h5>
+                            <p class="flex-grow-1">Monte Rosello è un quartiere dinamico con numerosi servizi e spazi verdi, ideale per famiglie e giovani.</p>
+                            <a href="monte.html" class="btn btn-primary mt-3">Scopri di più</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quartiere-box bg-white p-4 rounded shadow-sm h-100 d-flex flex-column">
+                            <h5 class="fw-bold">Sant'Orsola</h5>
+                            <p class="flex-grow-1">Sant'Orsola è diviso in Nord e Sud, ed è noto per la tranquillità e per le numerose aree verdi e attività culturali.</p>
+                            <a href="orsola.html" class="btn btn-primary mt-3">Scopri di più</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quartiere-box bg-white p-4 rounded shadow-sm h-100 d-flex flex-column">
+                            <h5 class="fw-bold">Li Punti</h5>
+                            <p class="flex-grow-1">Li Punti è una zona residenziale in espansione situata nella periferia nord di Sassari, con molti servizi e infrastrutture moderne.</p>
+                            <a href="lipunti.html" class="btn btn-primary mt-3">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023/2024 Centri in Rete. Un Progetto del P.L.U.S. di Sassari, Porto Torres, Sorso e Stintino.</p>
+        <p>&copy; 2023 Comune di Sassari. Tutti i diritti riservati.</p>
         <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById("nav-links");
