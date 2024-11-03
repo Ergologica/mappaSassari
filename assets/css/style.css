@@ -1,0 +1,100 @@
+/* Stile di base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* Wrapper per il contenuto principale */
+.main-content {
+    flex: 1; /* Permette alla sezione principale di espandersi per riempire lo spazio disponibile */
+}
+
+/* Stile per le immagini */
+.map-img {
+    width: 100%; /* L'immagine occuperà l'intera larghezza del contenitore */
+    max-width: 400px; /* Dimensione massima per evitare che diventi troppo grande */
+    height: auto; /* Mantiene le proporzioni originali */
+    margin: 20px auto; /* Centra l'immagine orizzontalmente */
+    display: block; /* Per rendere l'immagine un blocco di livello */
+    border-radius: 10px; /* Aggiunge angoli arrotondati */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per un aspetto professionale */
+}
+
+/* Stile per le sezioni */
+.section {
+    padding: 20px;
+    margin: 20px 0;
+    font-size: 16px; /* Aumenta la dimensione del font per la leggibilità */
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.nav-link {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #007BFF;
+}
+
+/* Stile per i titoli */
+h2, h3, h4 {
+    color: #333; /* Colore scuro per i titoli */
+}
+
+/* Aggiungi padding e margine agli h2, h3 e h4 */
+h2 {
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
