@@ -34,7 +34,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            z-index: 1000;
+            z-index: 100; /* Ridotto il valore di z-index per evitare possibili conflitti con altri elementi */
         }
         
         .nav-links {
@@ -60,7 +60,7 @@
                 right: 0;
                 width: 100%;
                 padding: 20px;
-                z-index: 999;
+                z-index: 100;
             }
 
             .nav-links.show {
@@ -152,7 +152,7 @@
 </nav>
 <div class="menu-icon" onclick="toggleMenu()">☰</div></header>
 <!-- Main content wrapper -->
-<div class="main-content">
+<div class="main-content" style="padding-top: 80px;">
 <!-- Introduzione -->
 <section class="section" id="quartiere-details">
 <h2>Centro Storico di Sassari</h2>
@@ -209,35 +209,7 @@
 <li><strong>Linea 8:</strong> Copre ampiamente il centro storico, collegando Piazza Stazione con Piazzale Segni e attraversando vie importanti come Corso Vico e Piazza d’Italia. Partenze regolari, rendendo il centro facilmente accessibile.</li>
 <li><strong>Linea VV:</strong> Passa per Piazza Santa Maria e Corso Regina Margherita, importante per l'accesso agli uffici amministrativi e il Tribunale dei Minori.</li>
 <li><strong>Linea CS:</strong> Collega il centro storico con quartieri come Lu Fangazzu e Viale Dante, attraversando Corso Trinità e Viale Umberto, ideale per residenti e visitatori del centro.</li>
-<li><strong>Linee di autobus:</strong> BB/MA/MP per Platamona, BA per Sacchetto, e molte altre linee che collegano Sassari con le periferie e il centro storico.</li>
-</ul>
-</section>
-<!-- Scuole e Istruzione -->
-<section class="section info-container" id="scuole">
-<h3>Scuole e Istruzione nel Quartiere</h3>
-<ul>
-<li><strong>Asilo Comunale</strong> - Via Sebastiano Satta 4</li>
-<li><strong>Istituto Comprensivo San Donato</strong> - Scuola primaria e infanzia, Tel: 0792845002, <a href="mailto:ssic85200n@istruzione.it">ssic85200n@istruzione.it</a></li>
-<li><strong>Scuola Media Statale</strong> - Via Alessio Fontana 3</li>
-</ul>
-</section>
-</div>
-<!-- Footer -->
-<footer>
-<p>© 2023 Comune di Sassari. Tutti i diritti riservati.</p>
-</footer>
-<script>
-                function toggleMenu() {
-                    const navLinks = document.getElementById("nav-links");
-                    navLinks.classList.toggle("show");
-                }
-                
-                function closeMenu() {
-                    const navLinks = document.getElementById("nav-links");
-                    navLinks.classList.remove("show");
-                }
-</script><script src="assets/js/main.js"></script>
-</body>
-</html>
+<li><strong>
+
 
 
