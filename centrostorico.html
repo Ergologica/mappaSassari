@@ -4,6 +4,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Centro Storico di Sassari</title>
+<meta name="description" content="Centro Storico di Sassari: scopri i quartieri, punti di ritrovo, servizi, e trasporti. Informazioni dettagliate e supporto per cittadini e turisti.">
+<meta name="keywords" content="Sassari, Centro Storico, Servizi, Trasporti, Attività, Quartieri">
+<meta property="og:title" content="Centro Storico di Sassari">
+<meta property="og:description" content="Informazioni complete sul centro storico di Sassari, inclusi quartieri, servizi, e attività per adolescenti e famiglie.">
+<meta property="og:image" content="assets/images/mappa.jpg">
+<meta property="og:url" content="https://example.com">
 <link href="assets/css/style.css" rel="stylesheet"/>
     <style>
         /* Stile per le immagini */
@@ -40,6 +46,9 @@
         .nav-links {
             display: flex;
             gap: 20px;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
         }
 
         .menu-icon {
@@ -52,7 +61,7 @@
         /* Media queries per adattare il comportamento del menu su dispositivi mobili */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                display: flex;
                 flex-direction: column;
                 background: rgba(51, 51, 51, 0.9);
                 position: absolute;
@@ -60,11 +69,14 @@
                 right: 0;
                 width: 100%;
                 padding: 20px;
+                max-height: 300px;
+                opacity: 0;
                 z-index: 100;
             }
 
             .nav-links.show {
-                display: flex;
+                max-height: 600px;
+                opacity: 1;
             }
 
             .menu-icon {
@@ -100,7 +112,7 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 30px;
         }
 
         ul {
@@ -141,16 +153,16 @@
 <body>
 <!-- Navbar -->
 <header>
-<div class="logo">Logo Sassari</div>
-<nav class="nav-links" id="nav-links">
-<a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="quartieri.html">Quartieri</a>
-<a class="nav-link" href="servizi-comunali.html">Servizi Comunali</a>
-<a class="nav-link" href="#volontariat">Volontariato</a>
-<a class="nav-link" href="#eventi">Eventi e Cultura</a>
-<a class="nav-link" href="#contatti">Contatti</a>
-</nav>
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="logo">Logo Sassari</div>
+    <nav class="nav-links" id="nav-links">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="quartieri.html">Quartieri</a>
+        <a class="nav-link" href="servizi-comunali.html">Servizi Comunali</a>
+        <a class="nav-link" href="#volontariat">Volontariato</a>
+        <a class="nav-link" href="#eventi">Eventi e Cultura</a>
+        <a class="nav-link" href="#contatti">Contatti</a>
+    </nav>
+    <div class="menu-icon" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</div>
 </header>
 <!-- Main content wrapper -->
 <div class="main-content" style="padding-top: 80px;">
@@ -162,7 +174,7 @@
         <h2>Centro Storico di Sassari</h2>
         <p>Il centro storico di Sassari rappresenta il cuore della città, sviluppato in maniera geometrica per adattarsi alle caratteristiche del territorio e alla storia. Le aree principali includono Piazza Sant'Antonio, Corso Vico, Piazza Castello, e molti altri punti di interesse culturale e sociale.</p>
         <div class="map-container">
-            <img alt="Mappa del Centro Storico di Sassari" class="map-img" src="assets/images/mappa.jpg"/>
+            <img alt="Mappa del Centro Storico di Sassari" class="map-img" src="assets/images/mappa.jpg" loading="lazy"/>
         </div>
     </section>
     <!-- Punti di Ritrovo -->
@@ -229,8 +241,13 @@
 <!-- Footer -->
 <footer>
     <p>© 2023 Comune di Sassari. Tutti i diritti riservati.</p>
+    <div>
+        <a href="https://www.facebook.com" aria-label="Facebook link">Facebook</a> |
+        <a href="https://www.twitter.com" aria-label="Twitter link">Twitter</a> |
+        <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+    </div>
 </footer>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js" defer></script>
 <script>
     function toggleMenu() {
         const navLinks = document.getElementById("nav-links");
@@ -239,6 +256,7 @@
 </script>
 </body>
 </html>
+
 
 
 
