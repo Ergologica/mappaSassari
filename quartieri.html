@@ -51,8 +51,17 @@
         .quartiere-card {
             margin: 10px 0;
             border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .quartiere-card:hover {
+            transform: scale(1.02);
+        }
+
+        .quartiere-card h3 {
+            color: #333;
         }
 
         /* Navbar mobile */
@@ -81,12 +90,18 @@
             text-align: center;
             padding: 20px;
             width: 100%;
+            position: relative;
         }
         .social-links {
             margin-top: 10px;
         }
         .social-links a {
             margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            color: #f1c40f;
         }
 
         /* Media Queries */
@@ -137,13 +152,15 @@
         <!-- Lista dei Quartieri -->
         <section id="quartieri" class="section">
             <h2> Quartieri di Sassari</h2>
+            <p>Esplora i quartieri di Sassari e scopri le bellezze e le caratteristiche uniche di ogni zona della città.</p>
             <div class="quartieri-grid">
                 <section id="mappe" class="section">
-                    
+                    <h3>Mappe dei Quartieri</h3>
+                    <p>Di seguito trovi le mappe dei principali quartieri di Sassari, ognuno con i suoi punti di interesse unici.</p>
                     <div class="map-container">
                         <img src="assets/images/duomo.png" alt="Mappa del Centro Storico di Sassari" class="map-img">
-                        <img src="assets/images/duo.png" alt="Mappa Cuore" class="map-img">
-                        <img src="assets/images/fronte.png" alt="Mappa Piazza" class="map-img">
+                        <img src="assets/images/duo.png" alt="Mappa del Cuore del quartiere Sacro Cuore" class="map-img">
+                        <img src="assets/images/fronte.png" alt="Mappa della Piazza di Monte Rosello" class="map-img">
                     </div>
                 </section>
 
@@ -179,11 +196,31 @@
                 </div>
             </div>
         </section>
+
+        <!-- Contatti -->
+        <section id="contatti" class="section">
+            <h2>Contatti</h2>
+            <p>Hai domande o vuoi partecipare a una delle nostre attività? Contattaci!</p>
+            <form action="#" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required><br><br>
+                <label for="messaggio">Messaggio:</label><br>
+                <textarea id="messaggio" name="messaggio" rows="5" placeholder="Inserisci il tuo messaggio" required></textarea><br><br>
+                <button type="submit">Invia Messaggio</button>
+            </form>
+        </section>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2023/2024 Centri in Rete. Un Progetto del P.L.U.S. di Sassari, Porto Torres, Sorso e Stintino.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
@@ -200,5 +237,3 @@
     </script>
 </body>
 </html>
-
-
