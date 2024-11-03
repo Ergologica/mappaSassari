@@ -1,143 +1,178 @@
 <!DOCTYPE html>
-
 <html lang="it">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Monte Rosello</title>
+<title>Monte Rosello di Sassari</title>
+<meta name="description" content="Monte Rosello: informazioni sul quartiere, servizi e vita comunitaria.">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMrHgUl36bUlbqgD5KwZxGuW+6U/t5r1C9e8h1G" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+ER6L8k5z2W1p0r7RzZ96S0lU4l+" crossorigin="anonymous">
 <link href="assets/css/style.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- Navbar -->
 <header>
-<div class="logo">Logo Sassari</div>
-<nav class="nav-links" id="nav-links">
-<a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="quartieri.html">Quartieri</a>
-<a class="nav-link" href="servizi-comunali.html">Servizi Comunali</a>
-<a class="nav-link" href="#volontariato">Volontariato</a>
-<a class="nav-link" href="#eventi">Eventi e Cultura</a>
-<a class="nav-link" href="#contatti">Contatti</a>
-</nav>
-<div class="menu-icon" onclick="toggleMenu()">☰</div></header>
+    <div class="logo">Logo Sassari</div>
+    <div class="menu-icon" onclick="toggleMenu()" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></div>
+    <nav>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="quartieri.html">Quartieri</a>
+        <a class="nav-link" href="servizi-comunali.html">Servizi Comunali</a>
+        <a class="nav-link" href="#volontariato">Volontariato</a>
+        <a class="nav-link" href="#eventi">Eventi e Cultura</a>
+        <a class="nav-link" href="#contatti">Contatti</a>
+    </nav>
+    <div class="nav-links" id="nav-links">
+        <a class="nav-link" href="index.html" onclick="closeMenu()">Home</a>
+        <a class="nav-link" href="quartieri.html" onclick="closeMenu()">Quartieri</a>
+        <a class="nav-link" href="servizi-comunali.html" onclick="closeMenu()">Servizi Comunali</a>
+        <a class="nav-link" href="#volontariato" onclick="closeMenu()">Volontariato</a>
+        <a class="nav-link" href="#eventi" onclick="closeMenu()">Eventi e Cultura</a>
+        <a class="nav-link" href="#contatti" onclick="closeMenu()">Contatti</a>
+    </div>
+</header>
 <!-- Main content wrapper -->
-<div class="main-content">
-<!-- Introduzione -->
-<section class="section" id="quartiere-details">
-<h2>Monte Rosello</h2>
-<p>Monte Rosello è un quartiere vasto e vivace, sviluppato negli anni '30 con la costruzione del Ponte Rosello. Si divide tra Monte Rosello Basso e Monte Rosello Alto, separati dalla trafficata via Pascoli. Il quartiere offre numerosi servizi e aree verdi come il Parco di Badimanna e il Parco Emanuela Loi, molto frequentati dai residenti di tutte le età.</p>
-<img alt="Mappa di Monte Rosello" src="assets/images/mapp.jpg"/>
-</section>
-<!-- Punti di Ritrovo -->
-<section class="section" id="punti-ritrovo">
-<h3>Punti di Ritrovo</h3>
-<div class="grid">
-<div class="card">
-<h4>Piazza Cuore Immacolato</h4>
-<p>Uno dei principali punti di ritrovo del quartiere.</p>
-</div>
-<div class="card">
-<h4>Piazza della Meridiana</h4>
-<p>Frequentata da giovani e famiglie, soprattutto nelle ore serali.</p>
-</div>
-<div class="card">
-<h4>Parco di Badimanna</h4>
-<p>Parco con pizzeria, bar e percorsi acrobatici tra gli alberi, frequentato soprattutto d'estate.</p>
-</div>
-<div class="card">
-<h4>Parco Emanuela Loi</h4>
-<p>Parco frequentato prevalentemente la sera da adolescenti, dotato di un piccolo bar.</p>
-</div>
-</div>
-</section>
-<!-- Tipologia di Abitazione -->
-<section class="section" id="abitazione">
-<h3>Tipologia di Abitazione</h3>
-<ul>
-<li><strong>Case Popolari:</strong> Presenti</li>
-<li><strong>Palazzi:</strong> Presenti</li>
-<li><strong>Ville Private:</strong> Non presenti</li>
-<li><strong>Quartiere Residenziale:</strong> No</li>
-<li><strong>Quartiere Dormitorio:</strong> No</li>
-</ul>
-</section>
-<!-- Tempo Libero -->
-<section class="section" id="tempo-libero">
-<h3>Attività per il Tempo Libero</h3>
-<h4>Organizzate</h4>
-<ul>
-<li>Palestra 2000, Tel: 0794802847, Lun - Sab</li>
-<li>Giò Sport, Tel: 0794361570, Lun - Ven</li>
-<li>Zeta Fitness, Lun - Sab</li>
-<li>Centro Taekwondo Mister 3, Tel: 3391937233, Lun - Ven 10:00-22:00</li>
-<li>Polisportiva Sassarese, <a href="mailto:polisportivasassarese@gmail.com">polisportivasassarese@gmail.com</a>, Lun - Ven 16:00-20:30</li>
-</ul>
-<h4>Non Organizzate</h4>
-<p>Parco Emanuela Loi, Parco di Badimanna, Campo “Badimannedda”, campetti liberi, e altri spazi per attività spontanee.</p>
-</section>
-<!-- Servizi al Cittadino -->
-<section class="section" id="servizi">
-<h3>Servizi al Cittadino</h3>
-<ul>
-<li><strong>Consultorio:</strong> Dott.ssa Irene Canu, Via Mores 5, Tel: 079245120</li>
-<li><strong>Rete Dafne:</strong> Via Nurra 3A, Tel: 079246653</li>
-<li><strong>Chiesa del Sacro Cuore:</strong> Via Grazia Deledda 104, Tel: 079244127</li>
-<li><strong>Chiesa di Gesù Cristo dei Santi degli Ultimi Giorni:</strong> Via Mores 15</li>
-<li><strong>Chiesa Parrocchiale del Buon Pastore:</strong> Piazza della Meridiana, Tel: 079243075</li>
-</ul>
-</section>
-<!-- Reti Urbane e Trasporti -->
-<section class="section" id="reti-urbane">
-<h3>Reti Urbane e Trasporti</h3>
-<ul>
-<li><strong>Linea 9329:</strong> Sassari - San Giacomo - Sorso - Sorso Marina</li>
-<li><strong>Linea 3:</strong> Serve Monte Rosello passando per Via Saragat e Istituto Paolo VI, con corse frequenti in tutto il giorno che coprono vie come Via Baldedda e Corso Pascoli.</li>
-<li><strong>Linea 1B:</strong> Collega Monte Rosello con San Francesco e Piandanna, attraversando Via Deledda e Corso Pascoli. Offre partenze frequenti durante tutta la giornata.</li>
-<li><strong>Linea 22:</strong> Include fermate a Monte Rosello e collega Piazza Vienna con altre zone come Santa Maria di Pisa. Corse distribuite durante tutta la giornata, fornendo un’opzione di mobilità continua.</li>
-<li>Collegamenti principali: San Francesco - Piandanna, Baldedda - Piandanna.</li>
-<li>Fermate di autobus e taxi disponibili in diverse zone.</li>
-</ul>
-</section>
-<!-- Scuole e Istruzione -->
-<section class="section" id="scuole">
-<h3>Scuole e Istruzione nel Quartiere</h3>
-<ul>
-<li><strong>Scuola dell'Infanzia:</strong> Via Manzoni, Tel: 0792845364, <a href="mailto:SSIC84900T@istruzione.it">SSIC84900T@istruzione.it</a></li>
-<li><strong>Scuola Primaria:</strong> Via Manzoni, Tel: 0792845364</li>
-<li><strong>Scuola Secondaria di I Grado:</strong> Via Ogliastra, Tel: 0792845364</li>
-<li><strong>Happy Time Asilo Nido:</strong> Via Gabriele D’Annunzio, Lun - Ven 07:30-16:30</li>
-</ul>
-</section>
-<!-- Salute -->
-<section class="section" id="salute">
-<h3>Farmacie e Medici nel Quartiere</h3>
-<ul>
-<li><strong>Farmacia Pascoli:</strong> Corso Giovanni Pascoli 9, Tel: 079241580</li>
-<li><strong>Farmacia Dr. Porcu Alberto:</strong> Corso Giovanni Pascoli 16C, Tel: 079252446</li>
-<li><strong>Medico di Base Dott. Sanna Franco:</strong> Via Grazia Deledda 78, Tel: 0792596047</li>
-<li><strong>Studio Medico Nieddu:</strong> Via Sorso 8</li>
-</ul>
-</section>
-<!-- Note per migliorie -->
-<section class="section" id="migliorie">
-<h3>Note per Migliorie del Quartiere</h3>
-<p>Possibili migliorie suggerite includono la costruzione di campetti all'aperto e un consultorio.</p>
-</section>
+<div class="container main-content" style="padding-top: 80px;">
+    <div class="text-center mb-4">
+        <a href="quartieri.html" class="btn btn-primary">Vai ai Quartieri</a>
+    </div>
+    <!-- Introduzione -->
+    <section class="section info-container" id="quartiere-details">
+        <h2>Monte Rosello di Sassari</h2>
+        <p>Monte Rosello è un quartiere vasto e vivace, sviluppato negli anni '30 con la costruzione del Ponte Rosello. Si divide tra Monte Rosello Basso e Monte Rosello Alto, separati dalla trafficata via Pascoli. Il quartiere offre numerosi servizi e aree verdi come il Parco di Badimanna e il Parco Emanuela Loi, molto frequentati dai residenti di tutte le età.</p>
+        <div class="map-container">
+            <img alt="Mappa di Monte Rosello" class="map-img" src="assets/images/mapp.jpg" loading="lazy"/>
+        </div>
+    </section>
+    <!-- Punti di Ritrovo -->
+    <section class="section info-container" id="punti-ritrovo">
+        <h3>Punti di Ritrovo</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <h4>Piazza Cuore Immacolato</h4>
+                    <p>Uno dei principali punti di ritrovo del quartiere.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h4>Piazza della Meridiana</h4>
+                    <p>Frequentata da giovani e famiglie, soprattutto nelle ore serali.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h4>Parco di Badimanna</h4>
+                    <p>Parco con pizzeria, bar e percorsi acrobatici tra gli alberi, frequentato soprattutto d'estate.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h4>Parco Emanuela Loi</h4>
+                    <p>Parco frequentato prevalentemente la sera da adolescenti, dotato di un piccolo bar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tipologia di Abitazione -->
+    <section class="section info-container" id="abitazione">
+        <h3>Tipologia di Abitazione</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Case Popolari:</strong> Presenti</li>
+            <li class="list-group-item"><strong>Palazzi:</strong> Presenti</li>
+            <li class="list-group-item"><strong>Ville Private:</strong> Non presenti</li>
+            <li class="list-group-item"><strong>Quartiere Residenziale:</strong> No</li>
+            <li class="list-group-item"><strong>Quartiere Dormitorio:</strong> No</li>
+        </ul>
+    </section>
+    <!-- Tempo Libero -->
+    <section class="section info-container" id="tempo-libero">
+        <h3>Attività per il Tempo Libero</h3>
+        <h4>Organizzate</h4>
+        <ul class="list-group">
+            <li class="list-group-item">Palestra 2000, Tel: 0794802847, Lun - Sab</li>
+            <li class="list-group-item">Giò Sport, Tel: 0794361570, Lun - Ven</li>
+            <li class="list-group-item">Zeta Fitness, Lun - Sab</li>
+            <li class="list-group-item">Centro Taekwondo Mister 3, Tel: 3391937233, Lun - Ven 10:00-22:00</li>
+            <li class="list-group-item">Polisportiva Sassarese, <a href="mailto:polisportivasassarese@gmail.com">polisportivasassarese@gmail.com</a>, Lun - Ven 16:00-20:30</li>
+        </ul>
+        <h4>Non Organizzate</h4>
+        <div class="info-container">
+            <p>Parco Emanuela Loi, Parco di Badimanna, Campo “Badimannedda”, campetti liberi, e altri spazi per attività spontanee.</p>
+        </div>
+    </section>
+    <!-- Servizi al Cittadino -->
+    <section class="section info-container" id="servizi">
+        <h3>Servizi al Cittadino</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Consultorio:</strong> Dott.ssa Irene Canu, Via Mores 5, Tel: 079245120</li>
+            <li class="list-group-item"><strong>Rete Dafne:</strong> Via Nurra 3A, Tel: 079246653</li>
+            <li class="list-group-item"><strong>Chiesa del Sacro Cuore:</strong> Via Grazia Deledda 104, Tel: 079244127</li>
+            <li class="list-group-item"><strong>Chiesa di Gesù Cristo dei Santi degli Ultimi Giorni:</strong> Via Mores 15</li>
+            <li class="list-group-item"><strong>Chiesa Parrocchiale del Buon Pastore:</strong> Piazza della Meridiana, Tel: 079243075</li>
+        </ul>
+    </section>
+    <!-- Reti Urbane e Trasporti -->
+    <section class="section info-container" id="reti-urbane">
+        <h3>Reti Urbane e Trasporti</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Linea 9329:</strong> Sassari - San Giacomo - Sorso - Sorso Marina</li>
+            <li class="list-group-item"><strong>Linea 3:</strong> Serve Monte Rosello passando per Via Saragat e Istituto Paolo VI, con corse frequenti in tutto il giorno che coprono vie come Via Baldedda e Corso Pascoli.</li>
+            <li class="list-group-item"><strong>Linea 1B:</strong> Collega Monte Rosello con San Francesco e Piandanna, attraversando Via Deledda e Corso Pascoli. Offre partenze frequenti durante tutta la giornata.</li>
+            <li class="list-group-item"><strong>Linea 22:</strong> Include fermate a Monte Rosello e collega Piazza Vienna con altre zone come Santa Maria di Pisa. Corse distribuite durante tutta la giornata, fornendo un’opzione di mobilità continua.</li>
+            <li class="list-group-item">Collegamenti principali: San Francesco - Piandanna, Baldedda - Piandanna.</li>
+            <li class="list-group-item">Fermate di autobus e taxi disponibili in diverse zone.</li>
+        </ul>
+    </section>
+    <!-- Scuole e Istruzione -->
+    <section class="section info-container" id="scuole">
+        <h3>Scuole e Istruzione nel Quartiere</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Scuola dell'Infanzia:</strong> Via Manzoni, Tel: 0792845364, <a href="mailto:SSIC84900T@istruzione.it">SSIC84900T@istruzione.it</a></li>
+            <li class="list-group-item"><strong>Scuola Primaria:</strong> Via Manzoni, Tel: 0792845364</li>
+            <li class="list-group-item"><strong>Scuola Secondaria di I Grado:</strong> Via Ogliastra, Tel: 0792845364</li>
+            <li class="list-group-item"><strong>Happy Time Asilo Nido:</strong> Via Gabriele D’Annunzio, Lun - Ven 07:30-16:30</li>
+        </ul>
+    </section>
+    <!-- Salute -->
+    <section class="section info-container" id="salute">
+        <h3>Farmacie e Medici nel Quartiere</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Farmacia Pascoli:</strong> Corso Giovanni Pascoli 9, Tel: 079241580</li>
+            <li class="list-group-item"><strong>Farmacia Dr. Porcu Alberto:</strong> Corso Giovanni Pascoli 16C, Tel: 079252446</li>
+            <li class="list-group-item"><strong>Medico di Base Dott. Sanna Franco:</strong> Via Grazia Deledda 78, Tel: 0792596047</li>
+            <li class="list-group-item"><strong>Studio Medico Nieddu:</strong> Via Sorso 8</li>
+        </ul>
+    </section>
+    <!-- Note per migliorie -->
+    <section class="section info-container" id="migliorie">
+        <h3>Note per Migliorie del Quartiere</h3>
+        <p>Possibili migliorie suggerite includono la costruzione di campetti all'aperto e un consultorio.</p>
+    </section>
 </div>
 <!-- Footer -->
-<footer>
-<p>© 2023 Comune di Sassari. Tutti i diritti riservati.</p>
+<footer class="text-center py-4">
+    <p>© 2023 Comune di Sassari. Tutti i diritti riservati.</p>
+    <div>
+        <a href="https://www.facebook.com" aria-label="Facebook link"><i class="fab fa-facebook"></i> Facebook</a> |
+        <a href="https://www.twitter.com" aria-label="Twitter link"><i class="fab fa-twitter"></i> Twitter</a> |
+        <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+    </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-kaB7P+9x7B/zF1U+hR+Tf5HrA7ik6l5M9Utdr2vBZD2ELk/OPv7Vh04MC0ZXgi8s" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-uj6Hn8U5hPdS5o0pbl3U5A7Erfw+/H8iG+T5+qPUuq9lke67tbz0XouEUW+tk6VH" crossorigin="anonymous"></script>
+<script src="assets/js/main.js" defer></script>
 <script>
-                function toggleMenu() {
-                    const navLinks = document.getElementById("nav-links");
-                    navLinks.classList.toggle("show");
-                }
-                
-                function closeMenu() {
-                    const navLinks = document.getElementById("nav-links");
-                    navLinks.classList.remove("show");
-                }
-                </script><script src="assets/js/main.js"></script>
+    function toggleMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("show");
+    }
+    
+    function closeMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.remove("show");
+    }
+</script>
 </body>
 </html>
+
