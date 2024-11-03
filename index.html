@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvenuti a Sassari</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Stile per la mappa */
+        .map-container {
+            display: flex;
+            justify-content: center; /* Centra la mappa orizzontalmente */
+            padding: 20px;
+        }
+        iframe {
+            width: 100%; /* Dimensione della mappa */
+            height: 500px; /* Altezza della mappa */
+            border: none; /* Rimuove il bordo dall'iframe */
+            border-radius: 10px; /* Aggiunge angoli arrotondati */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per un aspetto professionale */
+        }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 80vh; /* Altezza della hero section */
+            overflow: hidden;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .intro-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            z-index: 2;
+        }
+        .cta-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+        .menu-icon {
+            display: none; /* Nasconde l'icona del menu di default */
+            cursor: pointer;
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #007BFF;
+        }
+        /* Stile per il menu hamburger */
+        .nav-links {
+            display: none; /* Nasconde il menu in modalità mobile */
+            flex-direction: column; /* Imposta le voci del menu in verticale */
+            position: absolute;
+            top: 60px; /* Posizionamento sotto la navbar */
+            right: 0;
+            background: rgba(51, 51, 51, 0.9);
+            width: 100%; /* Larghezza piena */
+            padding: 10px 20px;
+        }
+        .nav-links a {
+            margin: 10px 0; /* Spazio verticale tra le voci */
+        }
+        /* Mostra il menu hamburger su schermi piccoli */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block; /* Mostra l'icona del menu su schermi piccoli */
+            }
+            nav {
+                display: none; /* Nasconde il menu normale */
+            }
+            .nav-links.show {
+                display: flex; /* Mostra il menu quando è attivo */
+            }
+        }
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            margin: 0 10px;
+        }
+
+        /* Aggiungere margine superiore per il contenuto */
+        .content {
+            margin-top: 80px; /* Regola l'altezza in base alla navbar */
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .intro-text h1 {
+                font-size: 1.8em; /* Riduci la dimensione del font per schermi più piccoli */
+            }
+            .cta-button {
+                width: 100%; /* Pulsante a larghezza piena */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar fissa -->
+    <header>
+        <div class="logo">Mappatura Educativa di Strada di Sassari</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Icona del menu hamburger -->
+        </div>
+        <nav>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="quartieri.html" class="nav-link">Quartieri</a>
+            <a href="servizi-comunali.html" class="nav-link">Servizi Comunali</a>
+            <a href="#volontariato" class="nav-link">Volontariato</a>
+            <a href="#eventi" class="nav-link">Eventi e Cultura</a>
+            <a href="#contatti" class="nav-link">Contatti</a>
+        </nav>
+        <div class="nav-links" id="nav-links">
+            <a href="#home" class="nav-link" onclick="closeMenu()">Home</a>
+            <a href="quartieri.html" class="nav-link" onclick="closeMenu()">Quartieri</a>
+            <a href="servizi-comunali.html" class="nav-link" onclick="closeMenu()">Servizi Comunali</a>
+            <a href="#volontariato" class="nav-link" onclick="closeMenu()">Volontariato</a>
+            <a href="#eventi" class="nav-link" onclick="closeMenu()">Eventi e Cultura</a>
+            <a href="#contatti" class="nav-link" onclick="closeMenu()">Contatti</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="slideshow-container">
+            <div class="mySlides fade"><img src="assets/images/hero1.jpg" alt="Panorama di Sassari 1"></div>
+            <div class="mySlides fade"><img src="assets/images/hero2.jpg" alt="Panorama di Sassari 2"></div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="intro-text">
+            <h1>Scopri la città di Sassari</h1>
+            <p>Benvenuti nel portale ufficiale della città di Sassari.</p>
+            <button onclick="window.location.href='quartieri.html'" class="cta-button">Esplora Quartieri</button>
+        </div>
+    </section>
+
+    <!-- Contenitore per il contenuto -->
+    <div class="content">
+        <!-- Sezione Mappa -->
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1eh0RFxxYtfba0BcJgKoBP3WgHkoRRSc&ehbc=2E312F"></iframe>
+        </div>
+
+        <p style="text-align: center; margin: 20px 0;">Utilizza la barra di ricerca nella mappa per trovare punti di interesse specifici. Puoi anche attivare o disattivare i filtri sui layer per visualizzare diversi tipi di luoghi.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023/2024 Centri in Rete. Tutti i diritti riservati.</p>
+        <div class="social-links">
+            <a href="#"><img src="assets/images/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="assets/images/instagram-icon.png" alt="Instagram"></a>
+            <a href="#"><img src="assets/images/twitter-icon.png" alt="Twitter"></a>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("show"); // Toggles the visibility of the nav links
+        }
+        
+        function closeMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.remove("show"); // Chiude il menu quando si seleziona un link
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

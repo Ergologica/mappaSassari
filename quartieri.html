@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quartieri di Sassari</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        /* Stile per la mappa */
+        .map-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .map-img {
+            width: 30%;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Stili generali */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+        nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .quartieri-grid {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 80px; /* Margine per compensare la navbar fissa */
+        }
+        .quartiere-card {
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Navbar mobile */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: rgba(51, 51, 51, 0.9);
+            width: 100%;
+            padding: 10px 20px;
+        }
+        .nav-links.show {
+            display: flex;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            margin: 0 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .map-img {
+                width: 80%;
+            }
+            .menu-icon {
+                display: block;
+            }
+            nav {
+                display: none;
+            }
+            .quartieri-grid {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">Logo Sassari</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Icona del menu hamburger -->
+        </div>
+        <nav>
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="#quartieri" class="nav-link">Quartieri</a>
+            <a href="./servizi-comunali.html" class="nav-link">Servizi Comunali</a>
+            <a href="#volontariato" class="nav-link">Volontariato</a>
+            <a href="#eventi" class="nav-link">Eventi e Cultura</a>
+            <a href="#contatti" class="nav-link">Contatti</a>
+        </nav>
+        <div class="nav-links" id="nav-links">
+            <a href="./index.html" class="nav-link" onclick="closeMenu()">Home</a>
+            <a href="#quartieri" class="nav-link" onclick="closeMenu()">Quartieri</a>
+            <a href="./servizi-comunali.html" class="nav-link" onclick="closeMenu()">Servizi Comunali</a>
+            <a href="#volontariato" class="nav-link" onclick="closeMenu()">Volontariato</a>
+            <a href="#eventi" class="nav-link" onclick="closeMenu()">Eventi e Cultura</a>
+            <a href="#contatti" class="nav-link" onclick="closeMenu()">Contatti</a>
+        </div>
+    </header>
+
+    <!-- Main content wrapper -->
+    <div class="main-content">
+        <!-- Lista dei Quartieri -->
+        <section id="quartieri" class="section">
+            <h2> Quartieri di Sassari</h2>
+            <div class="quartieri-grid">
+                <section id="mappe" class="section">
+                    <h3>Mappatura</h3>
+                    <div class="map-container">
+                        <img src="./assets/images/duomo.png" alt="Mappa del Centro Storico di Sassari" class="map-img">
+                        <img src="./assets/images/duo.png" alt="Mappa Cuore" class="map-img">
+                        <img src="./assets/images/fronte.png" alt="Mappa Piazza" class="map-img">
+                    </div>
+                </section>
+
+                <div class="quartiere-card">
+                    <h3>Centro Storico</h3>
+                    <p>Il centro storico di Sassari rappresenta il cuore della città, sviluppato in maniera geometrica per adattarsi alle caratteristiche del territorio e alla storia.</p>
+                    <a href="./centrostorico.html">Scopri di più</a>
+                </div>
+                <div class="quartiere-card">
+                    <h3>Monte Rosello</h3>
+                    <p>Monte Rosello è un quartiere ben conosciuto per i suoi servizi e la vivace comunità.</p>
+                    <a href="./monte.html">Scopri di più</a>
+                </div>
+                <div class="quartiere-card">
+                    <h3>Sacro Cuore</h3>
+                    <p>Sacro Cuore è famoso per le sue aree verdi e il calore della comunità locale.</p>
+                    <a href="./pisa.html">Scopri di più</a>
+                </div>
+                <div class="quartiere-card">
+                    <h3>Sant'Orsola</h3>
+                    <p>Sant'Orsola è un quartiere residenziale con molte attività culturali.</p>
+                    <a href="./orsola.html">Scopri di più</a>
+                </div>
+                <div class="quartiere-card">
+                    <h3>Latte Dolce</h3>
+                    <p>Latte Dolce offre una varietà di servizi ed è conosciuto per le sue tradizioni.</p>
+                    <a href="./latte.html">Scopri di più</a>
+                </div>
+                <div class="quartiere-card">
+                    <h3>Santa Maria di Pisa</h3>
+                    <p>Santa Maria di Pisa è un quartiere con una ricca storia e molti punti di interesse.</p>
+                    <a href="./pisa.html">Scopri di più</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Comune di Sassari. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("show");
+        }
+        
+        function closeMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.remove("show");
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latte Dolce</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Stile per le immagini */
+        .map-img {
+            width: 100%; /* L'immagine occuperà l'intera larghezza del contenitore */
+            max-width: 400px; /* Dimensione massima per evitare che diventi troppo grande */
+            height: auto; /* Mantiene le proporzioni originali */
+            margin: 20px auto; /* Centra l'immagine orizzontalmente */
+            display: block; /* Per rendere l'immagine un blocco di livello */
+            border-radius: 10px; /* Aggiunge angoli arrotondati */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per un aspetto professionale */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">Logo Sassari <img src="assets/images/mapa.jpg" alt="Logo Sassari"></div>
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="quartieri.html" class="nav-link">Quartieri</a>
+            <a href="servizi-comunali.html" class="nav-link">Servizi Comunali</a>
+            <a href="#volontariato" class="nav-link">Volontariato</a>
+            <a href="#eventi" class="nav-link">Eventi e Cultura</a>
+            <a href="#contatti" class="nav-link">Contatti</a>
+        </nav>
+    </header>
+
+    <!-- Main content wrapper -->
+    <div class="main-content">
+        <!-- Introduzione -->
+        <section id="quartiere-details" class="section">
+            <h2>Latte Dolce</h2>
+            <p>Situato nella zona nord-occidentale di Sassari, Latte Dolce è un quartiere residenziale sviluppatosi principalmente negli anni '60 e '70. Originariamente concepito per ospitare famiglie di operai e impiegati, oggi offre una varietà di servizi, tra cui scuole, aree verdi e strutture sportive. È noto per la sua vivace comunità e per essere sede di diverse associazioni culturali e sportive.</p>
+            <img src="assets/images/latte.png" alt="Mappa di Latte Dolce" class="map-img">
+        </section>
+
+        <!-- Punti di Ritrovo -->
+        <section id="punti-ritrovo" class="section">
+            <h3>Punti di Ritrovo per Adolescenti</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>Piazza Santa Caterina</h4>
+                    <p>Piazza ZTL con WiFi gratis, ritrovo di giovani, concerti e giochi.</p>
+                </div>
+                <div class="card">
+                    <h4>Piazza Sant'Antonio</h4>
+                    <p>Area frequentata da persone di etnie differenti, punto di ritrovo per stranieri.</p>
+                </div>
+                <div class="card">
+                    <h4>Piazza Castello</h4>
+                    <p>Adibita a famiglie, ben illuminata, frequentata da adolescenti e gruppi di giovani.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tempo Libero -->
+        <section id="tempo-libero" class="section">
+            <h3>Attività per il Tempo Libero</h3>
+            <h4>Organizzate</h4>
+            <ul>
+                <li>ASD Centro Storico Sassari Calcio - <a href="mailto:asdcentrostorico.ss@gmail.com">asdcentrostorico.ss@gmail.com</a></li>
+                <li>Agesci Gruppo Scout SS2 - Via Artiglieria, Chiesa Santa Maria di Betlem</li>
+            </ul>
+            <h4>Non Organizzate</h4>
+            <p>Area giochi per bambini in Via Tavolara. Gli adolescenti utilizzano le aree appartate per ritrovarsi.</p>
+        </section>
+
+        <!-- Servizi al Cittadino -->
+        <section id="servizi" class="section">
+            <h3>Servizi al Cittadino</h3>
+            <ul>
+                <li><strong>Punto Salute di Comunità</strong> - Via Casaggia n° 10, Tel: 079/279962, 079/279963</li>
+                <li><strong>Caritas</strong> - Buste alimentari in Largo Seminario 6, Mensa in Via Luigi Rolando 5</li>
+                <li><strong>Informa Giovani</strong> - Piazza Santa Caterina 25, Tel: 800327171</li>
+                <li><strong>Biblioteca Comunale</strong> - Piazza Tola 1, Tel: 079 273780, <a href="mailto:biblioteca@comune.sassari.it">biblioteca@comune.sassari.it</a></li>
+            </ul>
+        </section>
+
+        <!-- Reti Urbane -->
+        <section id="reti-urbane" class="section">
+            <h3>Reti Urbane e Trasporti</h3>
+            <ul>
+                <li><strong>Taxi</strong> - Stazione ferroviaria e Piazza d'Italia</li>
+                <li><strong>Capolinea Tram</strong> - Via Tavolara</li>
+                <li><strong>Linee di autobus</strong> - BB/MA/MP per Platamona, BA per Sacchetto.</li>            
+                <li><strong>Linea OT:</strong> Passa per Latte Dolce collegandolo con Via Tavolara e altre zone, come Li Punti e Sant'Orsola. Corse frequenti durante il giorno sia feriali che festive.</li>
+                <li><strong>Linea 22:</strong> Connette Latte Dolce con Piazza Vienna, passando per Via Bellini e Santa Maria di Pisa. Orari ampi, utili per chi ha esigenze di spostamento verso il centro e aree limitrofe.</li>
+                <li><strong>Corse Scolastiche:</strong> Diverse corse scolastiche servono il quartiere di Latte Dolce per collegamenti verso scuole e istituti, come la Linea Scolastica 5 e la Linea Scolastica 8.</li>
+            </ul>
+        </section>
+
+        <!-- Scuole e Istruzione -->
+        <section id="scuole" class="section">
+            <h3>Scuole e Istruzione nel Quartiere</h3>
+            <ul>
+                <li><strong>Asilo Comunale</strong> - Via Sebastiano Satta 4</li>
+                <li><strong>Istituto Comprensivo San Donato</strong> - Scuola primaria e infanzia, Tel: 0792845002, <a href="mailto:ssic85200n@istruzione.it">ssic85200n@istruzione.it</a></li>
+                <li><strong>Scuola Media Statale</strong> - Via Alessio Fontana 3</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Comune di Sassari. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
