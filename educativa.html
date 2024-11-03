@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educativa di Strada Sassari</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Stile per header e footer */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+        nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .quartieri-grid {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 80px; /* Margine per compensare la navbar fissa */
+        }
+        .quartiere-card {
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Navbar mobile */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: rgba(51, 51, 51, 0.9);
+            width: 100%;
+            padding: 10px 20px;
+        }
+        .nav-links.show {
+            display: flex;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            margin: 0 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .map-img {
+                width: 80%;
+            }
+            .menu-icon {
+                display: block;
+            }
+            nav {
+                display: none;
+            }
+            .quartieri-grid {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="logo">Mappatura Educativa di Strada di Sassari</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Icona del menu hamburger -->
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="quartieri.html" class="nav-link">Quartieri</a>
+            <a href="servizi.html" class="nav-link">Servizi</a>
+            <a href="#volontariato" class="nav-link">Volontariato</a>
+            <a href="#eventi" class="nav-link">Eventi e Cultura</a>
+            <a href="#contatti" class="nav-link">Contatti</a>
+        </nav>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html" class="nav-link" onclick="closeMenu()">Home</a>
+            <a href="quartieri.html" class="nav-link" onclick="closeMenu()">Quartieri</a>
+            <a href="servizi.html" class="nav-link" onclick="closeMenu()">Servizi</a>
+            <a href="#volontariato" class="nav-link" onclick="closeMenu()">Volontariato</a>
+            <a href="#eventi" class="nav-link" onclick="closeMenu()">Eventi e Cultura</a>
+            <a href="#contatti" class="nav-link" onclick="closeMenu()">Contatti</a>
+        </div>
+    </header>
+
+    <!-- Intestazione Vivace -->
+    <section class="hero-header" style="margin-top: 80px;">
+        <h1>Benvenuti all'Educativa di Strada Sassari</h1>
+        <p>Un punto di incontro per i giovani e la comunità</p>
+    </section>
+
+    <!-- Sezione Attività e Progetti -->
+    <section id="attivita" class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="images/attivita-giovani.jpg" class="img-fluid rounded" alt="Attività di aggregazione giovanile">
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div>
+                    <h2>Le nostre attività</h2>
+                    <p>L'Educativa di Strada di Sassari promuove diverse iniziative per i giovani, tra cui la mappatura dei luoghi di aggregazione e la ricerca sugli stili di vita giovanili. Siamo impegnati a offrire laboratori creativi e supporto sociale per favorire la crescita dei ragazzi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Ricerche con Grafici -->
+    <section id="ricerche" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Ricerche e Risultati</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Le nostre ricerche esplorano temi importanti per i giovani, dalle abitudini di socializzazione agli interessi sportivi. Analizziamo i dati raccolti attraverso questionari e presentiamo i risultati in modo chiaro e accessibile.</p>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="graficoRicerca"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Eventi e Attività -->
+    <section id="eventi" class="container py-5">
+        <h2 class="text-center mb-4">Eventi e Attività</h2>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="images/workshop.jpg" class="card-img-top" alt="Workshop giovanile">
+                    <div class="card-body">
+                        <h5 class="card-title">Workshop Creativo</h5>
+                        <p class="card-text">Partecipa ai nostri workshop per esprimere la tua creatività!</p>
+                        <a href="#" class="btn btn-primary">Registrati ora</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Altri eventi... -->
+        </div>
+    </section>
+
+    <!-- Sezione Collaborazioni -->
+    <section id="collaborazioni" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Collaborazioni</h2>
+            <div class="d-flex flex-wrap justify-content-center">
+                <a href="https://www.partner1.com" target="_blank">
+                    <img src="images/logo-partner1.png" alt="Partner 1" class="partner-logo">
+                </a>
+                <a href="https://www.partner2.com" target="_blank">
+                    <img src="images/logo-partner2.png" alt="Partner 2" class="partner-logo">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modulo di Contatto -->
+    <section id="contatti" class="container py-5">
+        <h2 class="text-center mb-4">Contattaci</h2>
+        <form>
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="messaggio" class="form-label">Messaggio</label>
+                <textarea class="form-control" id="messaggio" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Invia</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023/2024 Centri in Rete. Un Progetto del P.L.U.S. di Sassari, Porto Torres, Sorso e Stintino.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Inizializzazione del grafico di esempio
+        const ctx = document.getElementById('graficoRicerca').getContext('2d');
+        const graficoRicerca = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Sport', 'Socializzazione', 'Cultura'],
+                datasets: [{
+                    label: 'Partecipazione',
+                    data: [30, 45, 25],
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function toggleMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("show");
+        }
+        
+        function closeMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.remove("show");
+        }
+    </script>
+</body>
+</html>
