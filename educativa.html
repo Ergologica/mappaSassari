@@ -156,8 +156,8 @@
         </div>
     </section>
 
-    <!-- Sezione Ricerche con Grafici -->
-    <section id="ricerche" class="bg-light py-5">
+    <!-- Sezione Ricerche e Risultati -->
+    <section id="ricerche-risultati" class="bg-light py-5">
         <div class="container">
             <h2 class="text-center mb-4">Ricerche e Risultati</h2>
             <div class="row">
@@ -172,94 +172,55 @@
     </section>
 
     <!-- Sezione Eventi e Attività -->
-<section id="eventi" class="container py-5">
-    <h2 class="text-center mb-4">Eventi e Attività</h2>
-    <div class="row">
-        <div class="col-md-3 mb-3">
-            <div class="card">
-                <img src="images/workshop.jpg" class="card-img-top" alt="Workshop giovanile">
-                <div class="card-body">
-                    <h5 class="card-title">Workshop Creativo</h5>
-                    <p class="card-text">Partecipa ai nostri workshop per esprimere la tua creatività!</p>
-                    <a href="#" class="btn btn-primary">Registrati ora</a>
+    <section id="eventi" class="container py-5">
+        <h2 class="text-center mb-4">Eventi e Attività</h2>
+        <div class="row">
+            <!-- Evento Card - Dinamicamente generata se necessario -->
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img src="images/workshop.jpg" class="card-img-top" alt="Workshop giovanile">
+                    <div class="card-body">
+                        <h5 class="card-title">Workshop Creativo</h5>
+                        <p class="card-text">Partecipa ai nostri workshop per esprimere la tua creatività!</p>
+                        <a href="#" class="btn btn-primary">Registrati ora</a>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="col-md-3 mb-3">
-            <div class="card">
-                <img src="images/workshop.jpg" class="card-img-top" alt="Workshop giovanile">
-                <div class="card-body">
-                    <h5 class="card-title">Workshop Creativo</h5>
-                    <p class="card-text">Partecipa ai nostri workshop per esprimere la tua creatività!</p>
-                    <a href="#" class="btn btn-primary">Registrati ora</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-3 mb-3">
-            <div class="card">
-                <img src="images/workshop.jpg" class="card-img-top" alt="Workshop giovanile">
-                <div class="card-body">
-                    <h5 class="card-title">Workshop Creativo</h5>
-                    <p class="card-text">Partecipa ai nostri workshop per esprimere la tua creatività!</p>
-                    <a href="#" class="btn btn-primary">Registrati ora</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-3 mb-3">
-            <div class="card">
-                <img src="images/workshop.jpg" class="card-img-top" alt="Workshop giovanile">
-                <div class="card-body">
-                    <h5 class="card-title">Workshop Creativo</h5>
-                    <p class="card-text">Partecipa ai nostri workshop per esprimere la tua creatività!</p>
-                    <a href="#" class="btn btn-primary">Registrati ora</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Altri eventi... -->
-    </div>
-</section>
+    </section>
 
+   <!-- Sezione Festival dello Sport 2024 -->
+    <section id="festival-sport" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Festival dello Sport 2024</h2>
+            <div class="row">
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <a href="https://www.partner1.com" target="_blank">
+                        <img src="assets/images/Festivals.png" alt="Festival dello Sport 2024" class="partner-logo m-3">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="graficoFestival"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Sezione Loghi -->
+    <!-- Sezione Collaborazioni -->
     <section id="collaborazioni" class="bg-light py-5">
         <div class="container">
             <h2 class="text-center mb-4">Un progetto del PLUS di Sassari, Porto Torres, Sorso e Stintino</h2>
             <div class="d-flex flex-wrap justify-content-center">
                 <a href="https://www.partner1.com" target="_blank">
-                    <img src="assets/images/loghi.svg" alt="Partner 1" class="partner-logo m-3">
+                    <img src="assets/images/loghi.svg" alt="Logo Partner 1" class="partner-logo m-3">
                 </a>                
             </div>
         </div>
     </section>
-    
-    <!-- Sezione Festival dello Sport 2024 -->
-<section id="ricerche" class="bg-light py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Festival dello Sport 2024</h2>
-        <div class="row">
-            <!-- Colonna con l'immagine centrata -->
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                <a href="https://www.partner1.com" target="_blank">
-                    <img src="assets/images/Festivals.png" alt="Partner 1" class="partner-logo m-3">
-                </a>
-                <p class="text-center">SPORTSPORTSPORT</p>
-            </div>
-            <!-- Colonna con il grafico -->
-            <div class="col-md-6">
-                <canvas id="graficoRicerca"></canvas>
-            </div>
-        </div>
-    </div>
-</section>
 
-    
-    
+   
 
-      <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2023/2024 Centri in Rete. Un Progetto del P.L.U.S. di Sassari, Porto Torres, Sorso e Stintino.</p>
         <div class="social-links">
@@ -303,4 +264,8 @@
         
         function closeMenu() {
             const navLinks = document.getElementById("nav-links");
-            navLinks.classList.remove("show
+            navLinks.classList.remove("show");
+        }
+    </script>
+</body>
+</html>
