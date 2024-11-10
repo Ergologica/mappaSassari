@@ -41,6 +41,9 @@
             font-size: 1.5rem;
             font-weight: bold;
         }
+        nav {
+            display: flex;
+        }
         nav a {
             color: #fff;
             margin-left: 25px;
@@ -53,15 +56,36 @@
         .menu-icon {
             display: none;
             cursor: pointer;
+            font-size: 2rem;
         }
         
-        /* Navbar for larger devices */
-        @media (min-width: 768px) {
+        /* Navbar for mobile devices */
+        @media (max-width: 768px) {
             nav {
-                display: flex;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: rgba(33, 150, 243, 0.9);
+                width: 200px;
+                padding: 20px;
+                transition: transform 0.3s ease-in-out;
+                transform: translateX(100%);
+            }
+            nav.show {
+                transform: translateX(0);
             }
             .menu-icon {
-                display: none;
+                display: block;
+            }
+            .nav-link {
+                padding: 10px 0;
+                text-align: left;
+                transition: background 0.3s ease;
+            }
+            .nav-link:hover {
+                background: rgba(255, 255, 255, 0.2);
             }
         }
 
@@ -111,40 +135,6 @@
         .social-links a:hover {
             color: #ffeb3b;
         }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .map-img {
-                width: 80%;
-            }
-            .menu-icon {
-                display: block;
-            }
-            nav {
-                display: none;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: 0;
-                background: rgba(33, 150, 243, 0.9);
-                width: 200px;
-                padding: 20px;
-            }
-            .nav-links.show {
-                display: flex;
-            }
-            .nav-link {
-                padding: 10px 0;
-                text-align: left;
-                transition: background 0.3s ease;
-            }
-            .nav-link:hover {
-                background: rgba(255, 255, 255, 0.2);
-            }
-        }
     </style>
 </head>
 <body>
@@ -175,7 +165,7 @@
                 <div class="map-container">
                     <img src="assets/images/mappa.jpg" alt="Mappa del Centro Storico di Sassari" class="map-img">
                 </div>
-                <p class="lead text-center">Il centro storico di Sassari rappresenta il cuore della città, ricco di storia, cultura, e monumenti di grande valore. Passeggiando per le sue vie, si possono ammirare edifici storici, piazze caratteristiche, e molti punti di interesse culturale e turistico. Il centro storico si snoda da Piazza Sant'Antonio fino a Corso Vico, passando per Corso Margherita di Savoia, Via Torre Tonda, Via Brigata Sassari, Piazza Castello, Via Mercato, e Corso Trinità. A pochi passi dal quartiere adiacente si trovano i giardini pubblici, che ospitano il capolinea degli autobus principali. Il centro è caratterizzato da un tessuto urbano geometrico, influenzato dalla conformazione del territorio e dalla sua storia. Sassari non ha una ZTL (Zona a Traffico Limitato).</p>
+                <p class="lead text-center">Il centro storico di Sassari rappresenta il cuore della città, ricco di storia, cultura, e monumenti di grande valore. Passeggiando per le sue vie, si possono ammirare edifici storici, piazze caratteristiche, e molti punti di interesse culturale e turistico. Il centro storico si snoda da Piazza Sant'Antonio fino a Corso Vico, passando per Corso Margherita di Savoia, Via Torre Tonda, Via Brigata Sassari, Piazza Castello, Via Mercato, e Corso Trinità. A pochi passi dal quartiere adiacente si trovano i giardini pubblici, che ospitano il capolinea degli autobus principali. Il centro è caratterizzato da un tessuto urbano geometrico, influenzato dalla conformazione del territorio e dalla sua storia. Sassari non ha una ZTL (Zona Traffico Limitato).</p>
             </div>
         </section>
 
@@ -304,8 +294,8 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Comune di Sassari. Tutti i diritti riservati.</p>
+     <footer>
+        <p>&copy; 2023/2024 Centri in Rete.</p>
         <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -315,8 +305,8 @@
 
     <script>
         function toggleMenu() {
-            const navLinks = document.querySelector('nav');
-            navLinks.classList.toggle('show');
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('show');
         }
     </script>
 </body>
