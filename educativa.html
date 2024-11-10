@@ -18,6 +18,7 @@
         h2, h3, h4, h5 {
             font-family: 'Lobster', cursive;
             color: #2c3e50;
+            font-weight: 600;
         }
         .section {
             padding: 60px 0;
@@ -122,22 +123,14 @@
         <div class="menu-icon" onclick="toggleMenu()">
             &#9776; <!-- Icona del menu hamburger -->
         </div>
-        <nav>
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="quartieri.html" class="nav-link">Quartieri</a>
-            <a href="servizi.html" class="nav-link">Servizi</a>
-            <a href="#volontariato" class="nav-link">Volontariato</a>
-            <a href="#eventi" class="nav-link">Eventi e Cultura</a>
-            <a href="#contatti" class="nav-link">Contatti</a>
-        </nav>
-        <div class="nav-links" id="nav-links">
+        <nav id="nav-links">
             <a href="index.html" class="nav-link" onclick="closeMenu()">Home</a>
             <a href="quartieri.html" class="nav-link" onclick="closeMenu()">Quartieri</a>
             <a href="servizi.html" class="nav-link" onclick="closeMenu()">Servizi</a>
             <a href="#volontariato" class="nav-link" onclick="closeMenu()">Volontariato</a>
             <a href="#eventi" class="nav-link" onclick="closeMenu()">Eventi e Cultura</a>
             <a href="#contatti" class="nav-link" onclick="closeMenu()">Contatti</a>
-        </div>
+        </nav>
     </header>
 
     <!-- Intestazione Vivace -->
@@ -170,7 +163,7 @@
                     <p>Le nostre ricerche esplorano temi importanti per i giovani, dalle abitudini di socializzazione agli interessi sportivi. Analizziamo i dati raccolti attraverso questionari e presentiamo i risultati in modo chiaro e accessibile.</p>
                 </div>
                 <div class="col-md-6">
-                    <canvas id="graficoRicerca"></canvas>
+                    <canvas id="graficoRicerca1"></canvas>
                 </div>
             </div>
         </div>
@@ -179,20 +172,58 @@
     <!-- Sezione Eventi e Attività -->
     <section id="eventi" class="container py-5">
         <h2 class="text-center mb-4">Eventi e Attività</h2>
-        <div class="row">
-            <!-- Evento Card - Dinamicamente generata se necessario -->
-            <div class="col-md-3 mb-3">
-                <div class="card">
-                    <img src="images/workshop.jpg" class="card-img-top" alt="Workshop giovanile">
-                    <div class="card-body">
-                        <h5 class="card-title">Workshop Creativo</h5>
-                        <p class="card-text">Partecipa ai nostri workshop per esprimere la tua creatività!</p>
-                        <a href="#" class="btn btn-primary">Registrati ora</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row" id="eventi-container">
+            <!-- Evento Card generata dinamicamente -->
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const eventiData = [
+                {
+                    title: "Workshop Creativo",
+                    description: "Partecipa ai nostri workshop per esprimere la tua creatività!",
+                    imageUrl: "images/workshop.jpg",
+                    link: "#"
+                },
+                {
+                    title: "Incontro Sportivo",
+                    description: "Unisciti a noi per un pomeriggio di sport e divertimento!",
+                    imageUrl: "images/sport.jpg",
+                    link: "#"
+                },
+                {
+                    title: "Laboratorio di Musica",
+                    description: "Scopri il tuo talento musicale partecipando al nostro laboratorio.",
+                    imageUrl: "images/musica.jpg",
+                    link: "#"
+                },
+                {
+                    title: "Festival della Cultura",
+                    description: "Celebra con noi la ricchezza della nostra cultura locale.",
+                    imageUrl: "images/cultura.jpg",
+                    link: "#"
+                }
+            ];
+
+            const eventiContainer = document.getElementById("eventi-container");
+            eventiData.forEach(evento => {
+                const eventCard = `
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <img src="${evento.imageUrl}" class="card-img-top" alt="${evento.title}">
+                            <div class="card-body">
+                                <h5 class="card-title">${evento.title}</h5>
+                                <p class="card-text">${evento.description}</p>
+                                <a href="${evento.link}" class="btn btn-primary">Registrati ora</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                eventiContainer.innerHTML += eventCard;
+            });
+        });
+    </script>
 
    <!-- Sezione Festival dello Sport 2024 -->
     <section id="festival-sport" class="bg-light py-5">
@@ -223,8 +254,6 @@
         </div>
     </section>
 
-   
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2023/2024 Centri in Rete. Un Progetto del P.L.U.S. di Sassari, Porto Torres, Sorso e Stintino.</p>
@@ -239,8 +268,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Inizializzazione del grafico di esempio
-        const ctx = document.getElementById('graficoRicerca').getContext('2d');
-        const graficoRicerca = new Chart(ctx, {
+        const ctx1 = document.getElementById('graficoRicerca1').getContext('2d');
+        const graficoRicerca1 = new Chart(ctx1, {
             type: 'bar',
             data: {
                 labels: ['Sport', 'Socializzazione', 'Cultura'],
@@ -274,3 +303,4 @@
     </script>
 </body>
 </html>
+
