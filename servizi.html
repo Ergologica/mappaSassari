@@ -2,32 +2,155 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servizi a Sassari - Descrizioni Estese</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Lobster&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
   <style>
-    body { font-family: 'Roboto', sans-serif; background: #f5f5f5; color: #333; }
-    h2, h3 { font-family: 'Lobster', cursive; color: #2c3e50; }
-    .section { padding: 60px 0; }
-    .card { margin-bottom: 20px; }
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #ffeb3b;
+      --nav-bg: rgba(51, 51, 51, 0.9);
+      --nav-alt-bg: rgba(33, 150, 243, 0.8);
+      --footer-bg: #2c3e50;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Lobster', cursive;
+      color: var(--primary-color);
+    }
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, var(--nav-bg), var(--nav-alt-bg));
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: var(--secondary-color);
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 30px;
+        background: rgba(33, 150, 243, 0.9);
+        width: 200px;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-link {
+        padding: 10px 0;
+        text-align: left;
+      }
+    }
+    /* Hero Section */
+    .hero-section {
+      background: url('assets/images/hero-bg.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 150px 0;
+      position: relative;
+      margin-top: 80px; /* spazio per il fixed header */
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    /* Sezioni e Card */
+    .section {
+      padding: 60px 0;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #ffffff;
+      text-align: center;
+      padding: 30px;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
-  <header class="py-3 mb-4 bg-light">
-    <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="h4 m-0">Mappatura Servizi – Sassari</h1>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item"><a href="#centro" class="nav-link">Centro</a></li>
-          <li class="nav-item"><a href="#zona-est" class="nav-link">Zona Est</a></li>
-          <li class="nav-item"><a href="#zona-nord" class="nav-link">Zona Nord</a></li>
-          <li class="nav-item"><a href="#zona-ovest" class="nav-link">Zona Ovest</a></li>
-          <li class="nav-item"><a href="#zona-sud" class="nav-link">Zona Sud</a></li>
-        </ul>
-      </nav>
-    </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Mappatura Educativa di Strada di Sassari</div>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="educativa.html" class="nav-link">Educativa di Strada</a>
+      <a href="quartieri.html" class="nav-link">Quartieri</a>
+      <a href="servizi.html" class="nav-link">Servizi</a>
+      <a href="#volontariato" class="nav-link">Volontariato</a>
+      <a href="#eventi" class="nav-link">Eventi e Cultura</a>
+      <a href="#contatti" class="nav-link">Contatti</a>
+    </nav>
   </header>
 
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="display-3">Servizi a Sassari</h1>
+      <p class="lead">Descrizioni Estese</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
   <main class="container">
     <!-- SEZIONE: Centro -->
     <section id="centro" class="section">
@@ -35,7 +158,7 @@
       <div class="row">
         <!-- Associazione Corale "Luigi Canepa" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Associazione Corale "Luigi Canepa"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Fondata ufficialmente nel 1921 (con radici dal 1880), la Corale Luigi Canepa è la più antica istituzione corale della Sardegna, nota per il suo repertorio polifonico e le tournée internazionali. Organizza concerti, festival e iniziative formative che valorizzano la tradizione musicale sassarese.</p>
@@ -47,7 +170,7 @@
         </div>
         <!-- UniSS Segreteria Studenti "Zirulia" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">UniSS Segreteria Studenti "Zirulia"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Situata nel Palazzo Zirulia in Piazza Università, questa segreteria è il fulcro dell’assistenza amministrativa per gli studenti dell'Università degli Studi di Sassari, gestendo iscrizioni, immatricolazioni e supporto durante l’intero percorso accademico.</p>
@@ -59,7 +182,7 @@
         </div>
         <!-- Accademia di Belle Arti "Mario Sironi" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Accademia di Belle Arti "Mario Sironi"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituzione formativa dedicata alle arti visive, che offre corsi di pittura, scultura e design e organizza eventi culturali per promuovere l’arte a Sassari.</p>
@@ -70,7 +193,7 @@
         </div>
         <!-- Centro Studi Europa - Agenzia Formativa -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Centro Studi Europa - Agenzia Formativa</h5>
               <p class="card-text"><strong>Descrizione:</strong> Agenzia formativa che offre corsi di aggiornamento e percorsi professionali innovativi, contribuendo allo sviluppo culturale e lavorativo della comunità.</p>
@@ -81,7 +204,7 @@
         </div>
         <!-- Convitto annesso Pellegrini -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Convitto annesso Pellegrini</h5>
               <p class="card-text"><strong>Descrizione:</strong> Struttura scolastica che offre alloggio e supporto formativo agli studenti, promuovendo l'istruzione e la crescita personale.</p>
@@ -92,7 +215,7 @@
         </div>
         <!-- Fumetteria Clandestina -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Fumetteria Clandestina</h5>
               <p class="card-text"><strong>Descrizione:</strong> Negozio specializzato in fumetti e gadget, punto di riferimento per gli appassionati di cultura pop e fumetti a Sassari.</p>
@@ -103,7 +226,7 @@
         </div>
         <!-- Mensa Universitaria Ersu -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Mensa Universitaria Ersu</h5>
               <p class="card-text"><strong>Descrizione:</strong> Fornisce pasti equilibrati e a prezzi accessibili agli studenti, contribuendo a garantire un’alimentazione sana durante il percorso universitario.</p>
@@ -114,7 +237,7 @@
         </div>
         <!-- Caffè Mignon -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Caffè Mignon</h5>
               <p class="card-text"><strong>Descrizione:</strong> Bar accogliente che serve caffè, dolci e snack, ideale per incontri informali e momenti di relax.</p>
@@ -125,7 +248,7 @@
         </div>
         <!-- Snack-Bar Pizzeria - Cipensoio -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Snack-Bar Pizzeria - Cipensoio</h5>
               <p class="card-text"><strong>Descrizione:</strong> Locale che propone pizze e snack in un ambiente informale, punto d'incontro per i cittadini di Sassari.</p>
@@ -136,7 +259,7 @@
         </div>
         <!-- Giasper Caffè -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Giasper Caffè</h5>
               <p class="card-text"><strong>Descrizione:</strong> Tradizionale caffè di Sassari, rinomato per la qualità delle sue bevande e dolci, e per la sua atmosfera accogliente.</p>
@@ -147,7 +270,7 @@
         </div>
         <!-- Spizzati Di Gallozza Sonia -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Spizzati Di Gallozza Sonia</h5>
               <p class="card-text"><strong>Descrizione:</strong> Locale che propone piatti tipici della tradizione sassarese, con un'atmosfera familiare e accogliente.</p>
@@ -158,7 +281,7 @@
         </div>
         <!-- Sapore Di Pizza -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Sapore Di Pizza</h5>
               <p class="card-text"><strong>Descrizione:</strong> Pizzeria rinomata per le sue pizze artigianali, preparate con ingredienti freschi e seguendo una tradizione culinaria autentica.</p>
@@ -169,7 +292,7 @@
         </div>
         <!-- Carhiba di Nora Di Francesco e Giuseppe Masala Snc -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Carhiba di Nora Di Francesco e Giuseppe Masala Snc</h5>
               <p class="card-text"><strong>Descrizione:</strong> Attività commerciale che offre specialità gastronomiche locali, riconosciuta per la qualità dei suoi prodotti e il servizio attento.</p>
@@ -180,7 +303,7 @@
         </div>
         <!-- Sweet waffle -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Sweet waffle</h5>
               <p class="card-text"><strong>Descrizione:</strong> Locale specializzato in waffle dolci, ideale per una pausa golosa e conviviale.</p>
@@ -191,7 +314,7 @@
         </div>
         <!-- White Café -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">White Café</h5>
               <p class="card-text"><strong>Descrizione:</strong> Elegante caffè che propone una vasta scelta di bevande e piatti leggeri in un ambiente moderno e raffinato.</p>
@@ -202,7 +325,7 @@
         </div>
         <!-- Bar Tomaso -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Bar Tomaso</h5>
               <p class="card-text"><strong>Descrizione:</strong> Storico bar di Sassari, apprezzato per la qualità delle sue bevande e l’atmosfera autentica che richiama la tradizione locale.</p>
@@ -213,7 +336,7 @@
         </div>
         <!-- X Siempre Tango -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">X Siempre Tango</h5>
               <p class="card-text"><strong>Descrizione:</strong> Locale dedicato al tango, che organizza serate ed eventi culturali per gli appassionati della danza e della musica tango.</p>
@@ -224,7 +347,7 @@
         </div>
         <!-- Accademia e Lavoro -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Accademia e Lavoro</h5>
               <p class="card-text"><strong>Descrizione:</strong> Centro formativo che offre corsi e workshop per lo sviluppo professionale, facilitando l’inserimento nel mondo del lavoro.</p>
@@ -235,7 +358,7 @@
         </div>
         <!-- Randstad -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Randstad</h5>
               <p class="card-text"><strong>Descrizione:</strong> Agenzia per il lavoro leader a livello mondiale, che supporta aziende e candidati nella ricerca di opportunità occupazionali.</p>
@@ -246,7 +369,7 @@
         </div>
         <!-- e-work spa Sassari -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">e-work spa Sassari</h5>
               <p class="card-text"><strong>Descrizione:</strong> Agenzia per il lavoro che propone soluzioni innovative per l'intermediazione e l'orientamento professionale, facilitando l'incontro tra domanda e offerta nel mercato locale.</p>
@@ -257,7 +380,7 @@
         </div>
         <!-- Openjobmetis S.p.a Agenzia Per Il Lavoro -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Openjobmetis S.p.a Agenzia Per Il Lavoro</h5>
               <p class="card-text"><strong>Descrizione:</strong> Agenzia specializzata in intermediazione lavorativa, che offre servizi di orientamento e consulenza per favorire l'inserimento nel mercato del lavoro.</p>
@@ -268,7 +391,7 @@
         </div>
         <!-- Direzione Lavoro Group S.P.A -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Direzione Lavoro Group S.P.A</h5>
               <p class="card-text"><strong>Descrizione:</strong> Società operante nel settore dei servizi per il lavoro, che offre consulenza e soluzioni strategiche per la gestione delle risorse umane.</p>
@@ -279,7 +402,7 @@
         </div>
         <!-- Gi Group -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Gi Group</h5>
               <p class="card-text"><strong>Descrizione:</strong> Multinazionale leader nei servizi per il lavoro, che offre soluzioni di intermediazione e supporta lo sviluppo professionale di aziende e lavoratori.</p>
@@ -290,7 +413,7 @@
         </div>
         <!-- Adecco -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Adecco</h5>
               <p class="card-text"><strong>Descrizione:</strong> Azienda globale specializzata in soluzioni HR, che facilita la ricerca di impiego e la gestione del personale attraverso servizi innovativi.</p>
@@ -301,7 +424,7 @@
         </div>
         <!-- ETJCA - Agenzia per il lavoro -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">ETJCA - Agenzia per il lavoro</h5>
               <p class="card-text"><strong>Descrizione:</strong> Agenzia che offre servizi di collocamento e orientamento, aiutando candidati e aziende a connettersi nel mercato del lavoro.</p>
@@ -312,7 +435,7 @@
         </div>
         <!-- Llavoro Spa Società Di Fornitura Di Lavoro Temporaneo -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Llavoro Spa Società Di Fornitura Di Lavoro Temporaneo</h5>
               <p class="card-text"><strong>Descrizione:</strong> Società specializzata nel lavoro temporaneo, che offre soluzioni flessibili per il collegamento tra domanda e offerta di lavoro.</p>
@@ -323,7 +446,7 @@
         </div>
         <!-- Stadio dei Pini "Tonino Siddi" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Stadio dei Pini "Tonino Siddi"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Impianto sportivo multifunzionale che ospita eventi calcistici e manifestazioni, punto di riferimento per la comunità sportiva.</p>
@@ -334,7 +457,7 @@
         </div>
         <!-- Fit For Life -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Fit For Life</h5>
               <p class="card-text"><strong>Descrizione:</strong> Centro dedicato al benessere che offre programmi di fitness personalizzati e attività per migliorare la forma fisica.</p>
@@ -345,7 +468,7 @@
         </div>
         <!-- MyGymnica -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">MyGymnica</h5>
               <p class="card-text"><strong>Descrizione:</strong> Palestra moderna che offre attrezzature avanzate e corsi per tutti i livelli, ideale per chi cerca un ambiente dinamico per l'allenamento.</p>
@@ -356,7 +479,7 @@
         </div>
         <!-- Palextra 2000 -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Palextra 2000</h5>
               <p class="card-text"><strong>Descrizione:</strong> Centro di formazione e sviluppo professionale che organizza corsi e workshop per migliorare le competenze lavorative.</p>
@@ -367,7 +490,7 @@
         </div>
         <!-- MSP -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">MSP</h5>
               <p class="card-text"><strong>Descrizione:</strong> Struttura sportiva che ospita eventi e competizioni, contribuendo alla promozione dello sport nella comunità.</p>
@@ -378,7 +501,7 @@
         </div>
         <!-- Associazione Dilettantistica Scacchi Torres -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Associazione Dilettantistica Scacchi Torres</h5>
               <p class="card-text"><strong>Descrizione:</strong> Promuove il gioco degli scacchi attraverso corsi, tornei ed eventi, stimolando il pensiero strategico e la cultura scacchistica.</p>
@@ -389,7 +512,7 @@
         </div>
         <!-- Bike Sharing - noleggio bici -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Bike Sharing - noleggio bici</h5>
               <p class="card-text"><strong>Descrizione:</strong> Servizio di noleggio biciclette che facilita la mobilità sostenibile e permette spostamenti ecologici in città.</p>
@@ -400,7 +523,7 @@
         </div>
         <!-- Gena Campo di Calcio -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Gena Campo di Calcio</h5>
               <p class="card-text"><strong>Descrizione:</strong> Impianto sportivo dedicato al calcio, ideale per allenamenti e partite amatoriali, che favorisce l'attività fisica nella comunità.</p>
@@ -411,7 +534,7 @@
         </div>
         <!-- Sto Torres Srl -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Sto Torres Srl</h5>
               <p class="card-text"><strong>Descrizione:</strong> Impresa locale attiva nel settore commerciale, riconosciuta per l’eccellenza dei suoi servizi e il contributo allo sviluppo economico della zona.</p>
@@ -422,7 +545,7 @@
         </div>
         <!-- Biblioteca accessibile -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Biblioteca accessibile</h5>
               <p class="card-text"><strong>Descrizione:</strong> Biblioteca moderna che offre un'ampia gamma di risorse culturali, con particolare attenzione all’accessibilità e al supporto alla ricerca.</p>
@@ -433,7 +556,7 @@
         </div>
         <!-- E.r.s.u. (Ufficio Segreteria) -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">E.r.s.u. (Ufficio Segreteria)</h5>
               <p class="card-text"><strong>Descrizione:</strong> Ufficio che supporta gli studenti con servizi amministrativi e pratiche universitarie, garantendo un’assistenza puntuale e dedicata.</p>
@@ -444,7 +567,7 @@
         </div>
         <!-- Centro Sportivo Via Pirandello, 1 / CRAL COMUNE DI SASSARI -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Centro Sportivo Via Pirandello, 1 / CRAL COMUNE DI SASSARI</h5>
               <p class="card-text"><strong>Descrizione:</strong> Impianto sportivo polifunzionale gestito dal CRAL, che offre spazi per attività sportive e ricreative, contribuendo al benessere della comunità.</p>
@@ -455,7 +578,7 @@
         </div>
         <!-- Palestra Luca Simula -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Palestra Luca Simula</h5>
               <p class="card-text"><strong>Descrizione:</strong> Struttura sportiva dotata di attrezzature moderne e corsi personalizzati, dedicata al fitness e al benessere.</p>
@@ -466,7 +589,7 @@
         </div>
         <!-- Gio' Sport Di Murgia Giovanni -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Gio' Sport Di Murgia Giovanni</h5>
               <p class="card-text"><strong>Descrizione:</strong> Centro sportivo che offre un'ampia gamma di attività, dalla ginnastica al calcio, per promuovere lo sport e il benessere.</p>
@@ -477,7 +600,7 @@
         </div>
         <!-- Palestra Dynamika -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Palestra Dynamika</h5>
               <p class="card-text"><strong>Descrizione:</strong> Palestra all'avanguardia che propone programmi dinamici e innovativi per un allenamento completo e personalizzato.</p>
@@ -486,9 +609,9 @@
             </div>
           </div>
         </div>
-        <!-- Palestra Sport Club 900 & Sport Club 900 Smart! -->
+        <!-- Palestra Sport Club 900 &amp; Sport Club 900 Smart! -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Palestra Sport Club 900 &amp; Sport Club 900 Smart!</h5>
               <p class="card-text"><strong>Descrizione:</strong> Struttura sportiva che integra metodi tradizionali e smart, offrendo programmi di allenamento adatti a tutte le esigenze.</p>
@@ -499,7 +622,7 @@
         </div>
         <!-- Palestra Ludus -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Palestra Ludus</h5>
               <p class="card-text"><strong>Descrizione:</strong> Palestra accogliente che favorisce il benessere fisico e la socializzazione, offrendo una vasta gamma di corsi e attività.</p>
@@ -510,7 +633,7 @@
         </div>
         <!-- Associazione Sportiva Dinamo Sassari -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Associazione Sportiva Dinamo Sassari</h5>
               <p class="card-text"><strong>Descrizione:</strong> Club sportivo che promuove attività competitive e ricreative, contribuendo alla crescita sportiva locale e all'inclusione sociale.</p>
@@ -521,7 +644,7 @@
         </div>
         <!-- Gruppo Sportivo San Paolo (prima occorrenza) -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Gruppo Sportivo San Paolo</h5>
               <p class="card-text"><strong>Descrizione:</strong> Organizzazione sportiva attiva nel promuovere discipline e competizioni, con un forte focus sull'allenamento e la formazione dei giovani atleti.</p>
@@ -532,7 +655,7 @@
         </div>
         <!-- Associazione Sportiva Dilettantistica Spazio Libero -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Associazione Sportiva Dilettantistica Spazio Libero</h5>
               <p class="card-text"><strong>Descrizione:</strong> Promuove lo sport amatoriale e la creazione di spazi ricreativi, incentivando la partecipazione alle attività sportive a livello locale.</p>
@@ -543,7 +666,7 @@
         </div>
         <!-- Gruppo Sportivo San Paolo (seconda occorrenza) -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Gruppo Sportivo San Paolo</h5>
               <p class="card-text"><strong>Descrizione:</strong> (Duplicato) Club sportivo impegnato nel promuovere attività sportive e tornei, con particolare attenzione alla formazione giovanile.</p>
@@ -554,7 +677,7 @@
         </div>
         <!-- Gruppo Sportivo Monserrato -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Gruppo Sportivo Monserrato</h5>
               <p class="card-text"><strong>Descrizione:</strong> Organizzazione sportiva attiva nel promuovere tornei e attività ricreative, contribuendo allo sviluppo della cultura sportiva locale.</p>
@@ -565,7 +688,7 @@
         </div>
         <!-- Società sportiva '' Marzio Lepri Torres'' -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Società sportiva '' Marzio Lepri Torres''</h5>
               <p class="card-text"><strong>Descrizione:</strong> Club sportivo che organizza eventi e manifestazioni, contribuendo a diffondere la passione per lo sport e l’attività fisica nella comunità.</p>
@@ -576,7 +699,7 @@
         </div>
         <!-- Istituto Tecnico Industriale "G.M. Angioy" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Tecnico Industriale "G.M. Angioy"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto tecnico che offre percorsi formativi orientati alle discipline industriali e tecnologiche, preparando gli studenti per il mondo del lavoro.</p>
@@ -587,7 +710,7 @@
         </div>
         <!-- Liceo Scientifico G. Spano -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Liceo Scientifico G. Spano</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto di istruzione superiore che offre un percorso di studi orientato alle scienze, preparando gli studenti con un approccio rigoroso e multidisciplinare.</p>
@@ -598,7 +721,7 @@
         </div>
         <!-- Istituto Superiore Statale 'G. M. Devilla -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Superiore Statale 'G. M. Devilla</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto statale che offre percorsi formativi di alto livello, integrando competenze tecniche e umanistiche per una formazione completa.</p>
@@ -609,7 +732,7 @@
         </div>
         <!-- Dipartimento di Agraria -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Dipartimento di Agraria</h5>
               <p class="card-text"><strong>Descrizione:</strong> Centro universitario che promuove studi e ricerche in ambito agricolo, contribuendo allo sviluppo di soluzioni innovative per il settore e la sostenibilità ambientale.</p>
@@ -620,7 +743,7 @@
         </div>
         <!-- Istituto Comprensivo "P. Tola" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Comprensivo "P. Tola"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Scuola che integra livelli di istruzione, offrendo un percorso educativo completo e inclusivo, dalla scuola elementare alla secondaria.</p>
@@ -631,7 +754,7 @@
         </div>
         <!-- Scuola Elementare Porcellana -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Scuola Elementare Porcellana</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto elementare che offre un'educazione di qualità, ponendo le basi per lo sviluppo cognitivo e sociale dei bambini.</p>
@@ -642,7 +765,7 @@
         </div>
         <!-- Istituto Tecnico Salvator Ruju -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Tecnico Salvator Ruju</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto tecnico che forma gli studenti in discipline tecnologiche e industriali, preparando professionisti per il mercato del lavoro.</p>
@@ -653,7 +776,7 @@
         </div>
         <!-- Istituto Comprensivo Statale TG5 Sardegna -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Comprensivo Statale TG5 Sardegna</h5>
               <p class="card-text"><strong>Descrizione:</strong> Scuola che applica metodi didattici moderni per garantire un’educazione completa e inclusiva, utilizzando tecnologie e metodologie innovative.</p>
@@ -664,7 +787,7 @@
         </div>
         <!-- Orto Botanico - Università degli Studi di Sassari -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Orto Botanico - Università degli Studi di Sassari</h5>
               <p class="card-text"><strong>Descrizione:</strong> Centro di ricerca e conservazione della flora locale, aperto al pubblico per attività didattiche, scientifiche ed eventi culturali.</p>
@@ -675,7 +798,7 @@
         </div>
         <!-- Liceo Classico Musicale E Core -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Liceo Classico Musicale E Core</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto che unisce un percorso classico a una formazione musicale, fornendo agli studenti una solida base culturale e artistica.</p>
@@ -686,7 +809,7 @@
         </div>
         <!-- Dipartimento di Chimica e Farmacia -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Dipartimento di Chimica e Farmacia</h5>
               <p class="card-text"><strong>Descrizione:</strong> Centro di eccellenza per la formazione e la ricerca nel settore chimico-farmaceutico, che forma professionisti altamente qualificati.</p>
@@ -697,7 +820,7 @@
         </div>
         <!-- Dipartimento di Giurisprudenza - UNISS -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Dipartimento di Giurisprudenza - UNISS</h5>
               <p class="card-text"><strong>Descrizione:</strong> Offre un percorso formativo completo in giurisprudenza, preparando gli studenti per carriere legali e di consulenza, con un approccio multidisciplinare.</p>
@@ -708,7 +831,7 @@
         </div>
         <!-- Dipartimento di Scienze economiche e aziendali -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Dipartimento di Scienze economiche e aziendali</h5>
               <p class="card-text"><strong>Descrizione:</strong> Centro universitario che forma specialisti in economia e gestione aziendale, offrendo corsi innovativi e ricerche avanzate.</p>
@@ -719,7 +842,7 @@
         </div>
         <!-- Palazzo Università -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Palazzo Università</h5>
               <p class="card-text"><strong>Descrizione:</strong> Edificio storico che ospita numerosi uffici e attività accademiche, simbolo della vita universitaria a Sassari.</p>
@@ -730,7 +853,7 @@
         </div>
         <!-- Università degli Studi di Sassari - Dipartimento di Scienze Umanistiche e Sociali -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Università degli Studi di Sassari - Dipartimento di Scienze Umanistiche e Sociali</h5>
               <p class="card-text"><strong>Descrizione:</strong> Dipartimento che offre corsi e ricerche nelle discipline umanistiche e sociali, contribuendo alla formazione critica e culturale degli studenti.</p>
@@ -741,7 +864,7 @@
         </div>
         <!-- Dipartimento di Storia, Scienze dell'Uomo e della Formazione -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Dipartimento di Storia, Scienze dell'Uomo e della Formazione</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituzione accademica focalizzata sullo studio della storia e delle scienze umane, con un approccio integrato alla formazione e alla ricerca.</p>
@@ -752,7 +875,7 @@
         </div>
         <!-- Scuola Primaria e Secondaria di primo grado -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Scuola Primaria e Secondaria di primo grado</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto che offre un percorso formativo integrato per bambini e ragazzi, promuovendo un ambiente educativo stimolante e inclusivo.</p>
@@ -763,7 +886,7 @@
         </div>
         <!-- Istituto Comprensivo Via Marras -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Comprensivo Via Marras</h5>
               <p class="card-text"><strong>Descrizione:</strong> Struttura educativa integrata che offre percorsi scolastici continui, promuovendo un apprendimento dinamico e inclusivo.</p>
@@ -774,7 +897,7 @@
         </div>
         <!-- Istituto Comprensivo "Pertini - Biasi" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Comprensivo "Pertini - Biasi"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Scuola che offre un percorso educativo completo, con particolare attenzione all’inclusione e alla qualità dell’insegnamento.</p>
@@ -785,7 +908,7 @@
         </div>
         <!-- Istituto Sant'Agnese -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Sant'Agnese</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto che si distingue per l'impegno nella formazione integrale, con un focus sulla valorizzazione dei talenti e della cultura locale.</p>
@@ -796,7 +919,7 @@
         </div>
         <!-- Istituto Comprensivo "San Donato" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Comprensivo "San Donato"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Scuola che integra vari livelli educativi in un ambiente innovativo, offrendo un percorso completo e inclusivo.</p>
@@ -807,7 +930,7 @@
         </div>
         <!-- Istituto Comprensivo Monte Rosello Basso -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Comprensivo Monte Rosello Basso</h5>
               <p class="card-text"><strong>Descrizione:</strong> Struttura educativa situata a Monte Rosello, che offre percorsi scolastici integrati e un ambiente stimolante per la crescita degli studenti.</p>
@@ -818,7 +941,7 @@
         </div>
         <!-- Scuola Media N 7 -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Scuola Media N 7</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto che forma gli studenti nel passaggio dalla scuola primaria alla secondaria, ponendo solide basi per il futuro percorso educativo.</p>
@@ -829,7 +952,7 @@
         </div>
         <!-- Istituto Comprensivo 'Salvatore Farina - San Giuseppe' -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Comprensivo 'Salvatore Farina - San Giuseppe'</h5>
               <p class="card-text"><strong>Descrizione:</strong> Struttura educativa integrata che offre un percorso completo, dalla scuola elementare alla secondaria, con un forte impegno nella qualità dell'insegnamento.</p>
@@ -840,7 +963,7 @@
         </div>
         <!-- Istituto Istruzione Superiore "N. Pellegrini" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Istruzione Superiore "N. Pellegrini"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto che offre corsi formativi tecnici e professionali, preparandosi a soddisfare le esigenze del mercato del lavoro con competenze specializzate.</p>
@@ -851,7 +974,7 @@
         </div>
         <!-- Istituto Tecnico Agrario "Nicolò Pellegrini" -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Istituto Tecnico Agrario "Nicolò Pellegrini"</h5>
               <p class="card-text"><strong>Descrizione:</strong> Istituto specializzato nel settore agricolo, che forma professionisti in ambito agrario e agroalimentare, con un approccio pratico e innovativo.</p>
@@ -862,7 +985,7 @@
         </div>
         <!-- INTERNATIONAL REVOLUTION S.r.l Scuola di Acconciatura ed Estetica -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">INTERNATIONAL REVOLUTION S.r.l Scuola di Acconciatura ed Estetica</h5>
               <p class="card-text"><strong>Descrizione:</strong> Scuola di formazione professionale che offre corsi per parrucchieri ed estetisti, con programmi innovativi e aggiornati per il settore della bellezza.</p>
@@ -873,7 +996,7 @@
         </div>
         <!-- Scuola Professionale Massaggio - Evolution Academy - Sassari -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Scuola Professionale Massaggio - Evolution Academy - Sassari</h5>
               <p class="card-text"><strong>Descrizione:</strong> Scuola che forma massaggiatori e operatori del benessere, offrendo un percorso formativo completo e aggiornato nel settore del massaggio terapeutico.</p>
@@ -884,7 +1007,7 @@
         </div>
         <!-- Scuola di Sartoria - Sitam Franco Allentini -->
         <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow-sm h-100">
             <div class="card-body">
               <h5 class="card-title">Scuola di Sartoria - Sitam Franco Allentini</h5>
               <p class="card-text"><strong>Descrizione:</strong> Scuola professionale che forma esperti nel campo della sartoria, con corsi che combinano tradizione e tecniche moderne per il design dell'abbigliamento.</p>
@@ -900,72 +1023,72 @@
     <section id="zona-est" class="section bg-white">
       <h2 class="text-center mb-4">Zona Est</h2>
       <div class="row">
-         <!-- Synergie Italia s.p.a. -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Synergie Italia s.p.a.</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Agenzia per il lavoro che offre soluzioni HR e servizi di intermediazione, favorendo il collegamento tra domanda e offerta occupazionale.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7202156, Lng: 8.5800687</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Planet Fitness -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Planet Fitness</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Palestra di alto livello che offre attrezzature moderne e programmi personalizzati per il fitness, promuovendo uno stile di vita sano.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.716121, Lng: 8.5810989</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Stadio Vanni Sanna -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Stadio Vanni Sanna</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Impianto sportivo che ospita eventi calcistici e manifestazioni, rappresentando un punto di riferimento per gli appassionati di sport nella zona Est.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.718097, Lng: 8.5800651</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Istituto Comprensivo 'Brigata Sassari' -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Istituto Comprensivo 'Brigata Sassari'</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Struttura educativa che offre un percorso integrato per gli studenti, con un approccio innovativo e inclusivo.</p>
-               <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
-               <p class="card-text"><small>Lat: 40.720871, Lng: 8.5813019</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Scuola ciclismo bmx mtb -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Scuola ciclismo bmx mtb</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Offre corsi e allenamenti per appassionati di BMX e mountain bike, promuovendo la sicurezza e la tecnica nel ciclismo outdoor.</p>
-               <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
-               <p class="card-text"><small>Lat: 40.7177529, Lng: 8.5968179</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Torres Sassari Scuola Calcio -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Torres Sassari Scuola Calcio</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Scuola calcio che forma giovani talenti, promuovendo tecniche e disciplina sportiva attraverso allenamenti e tornei locali.</p>
-               <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
-               <p class="card-text"><small>Lat: 40.7180622, Lng: 8.5811336</small></p>
-             </div>
-           </div>
-         </div>
+        <!-- Synergie Italia s.p.a. -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Synergie Italia s.p.a.</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Agenzia per il lavoro che offre soluzioni HR e servizi di intermediazione, favorendo il collegamento tra domanda e offerta occupazionale.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7202156, Lng: 8.5800687</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Planet Fitness -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Planet Fitness</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Palestra di alto livello che offre attrezzature moderne e programmi personalizzati per il fitness, promuovendo uno stile di vita sano.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.716121, Lng: 8.5810989</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Stadio Vanni Sanna -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Stadio Vanni Sanna</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Impianto sportivo che ospita eventi calcistici e manifestazioni, rappresentando un punto di riferimento per gli appassionati di sport nella zona Est.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.718097, Lng: 8.5800651</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Istituto Comprensivo 'Brigata Sassari' -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Istituto Comprensivo 'Brigata Sassari'</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Struttura educativa che offre un percorso integrato per gli studenti, con un approccio innovativo e inclusivo.</p>
+              <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
+              <p class="card-text"><small>Lat: 40.720871, Lng: 8.5813019</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Scuola ciclismo bmx mtb -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Scuola ciclismo bmx mtb</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Offre corsi e allenamenti per appassionati di BMX e mountain bike, promuovendo la sicurezza e la tecnica nel ciclismo outdoor.</p>
+              <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
+              <p class="card-text"><small>Lat: 40.7177529, Lng: 8.5968179</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Torres Sassari Scuola Calcio -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Torres Sassari Scuola Calcio</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Scuola calcio che forma giovani talenti, promuovendo tecniche e disciplina sportiva attraverso allenamenti e tornei locali.</p>
+              <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
+              <p class="card-text"><small>Lat: 40.7180622, Lng: 8.5811336</small></p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -973,116 +1096,116 @@
     <section id="zona-nord" class="section">
       <h2 class="text-center mb-4">Zona Nord</h2>
       <div class="row">
-         <!-- Centro poliss (Via Baldedda 15) -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Centro poliss (Via Baldedda 15)</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Struttura multifunzionale che ospita attività culturali e ricreative, situata nel cuore della zona Nord.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7403907, Lng: 8.5648478</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Aics Fp Sardegna APS -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Aics Fp Sardegna APS</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Associazione che offre servizi formativi e culturali, contribuendo all'inclusione sociale e allo sviluppo educativo nella zona Nord.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7452355, Lng: 8.5505835</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- ASPAL Centro per l'Impiego di Sassari (CPI) -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">ASPAL Centro per l'Impiego di Sassari (CPI)</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Centro per l’impiego che offre orientamento e supporto nella ricerca di lavoro, facilitando l’inserimento professionale nella comunità.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7460049, Lng: 8.5528094</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- A.S.D. Brigata Sassari -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">A.S.D. Brigata Sassari</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Associazione sportiva dilettantistica che promuove attività competitive e ricreative, con un forte impegno nella formazione sportiva giovanile.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7509474, Lng: 8.5145772</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Campo di calcetto -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Campo di calcetto</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Struttura sportiva dedicata al calcio a 5, ideale per allenamenti e partite amatoriali, che favorisce l’attività fisica.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7453193, Lng: 8.5458889</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Campo di calcio Latte Dolce -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Campo di calcio Latte Dolce</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Impianto sportivo dedicato al calcio, con campi regolamentari e attrezzature per allenamenti e partite amatoriali.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7435934, Lng: 8.5516109</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Sassari Calcio Latte Dolce -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Sassari Calcio Latte Dolce</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Squadra calcistica che rappresenta il quartiere Latte Dolce, offrendo formazione tecnica e organizzando partite locali.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7431227, Lng: 8.5514211</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Istituto Professionale per i Servizi per l'Enogastronomia e l'Ospitalità Alberghiera Sassari -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Istituto Professionale per i Servizi per l'Enogastronomia e l'Ospitalità Alberghiera Sassari</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Istituto che forma specialisti nel settore enogastronomico e dell'ospitalità, offrendo un percorso pratico e orientato al mercato.</p>
-               <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
-               <p class="card-text"><small>Lat: 40.7460171, Lng: 8.5454584</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- scuola di mountain bike -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">scuola di mountain bike</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Scuola che organizza corsi e allenamenti per mountain bike, promuovendo la pratica del ciclismo outdoor in ambienti naturali.</p>
-               <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
-               <p class="card-text"><small>Lat: 40.7919436, Lng: 8.5108075</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- scuola di ciclismo mountain bike e corsa -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">scuola di ciclismo mountain bike e corsa</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Offre programmi integrati di mountain bike e corsa, unendo allenamento aerobico e outdoor per migliorare la resistenza.</p>
-               <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
-               <p class="card-text"><small>Lat: 40.7928994, Lng: 8.5074261</small></p>
-             </div>
-           </div>
-         </div>
+        <!-- Centro poliss (Via Baldedda 15) -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Centro poliss (Via Baldedda 15)</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Struttura multifunzionale che ospita attività culturali e ricreative, situata nel cuore della zona Nord.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7403907, Lng: 8.5648478</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Aics Fp Sardegna APS -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Aics Fp Sardegna APS</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Associazione che offre servizi formativi e culturali, contribuendo all'inclusione sociale e allo sviluppo educativo nella zona Nord.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7452355, Lng: 8.5505835</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- ASPAL Centro per l'Impiego di Sassari (CPI) -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">ASPAL Centro per l'Impiego di Sassari (CPI)</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Centro per l’impiego che offre orientamento e supporto nella ricerca di lavoro, facilitando l’inserimento professionale nella comunità.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7460049, Lng: 8.5528094</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- A.S.D. Brigata Sassari -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">A.S.D. Brigata Sassari</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Associazione sportiva dilettantistica che promuove attività competitive e ricreative, con un forte impegno nella formazione sportiva giovanile.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7509474, Lng: 8.5145772</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Campo di calcetto -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Campo di calcetto</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Struttura sportiva dedicata al calcio a 5, ideale per allenamenti e partite amatoriali, che favorisce l’attività fisica.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7453193, Lng: 8.5458889</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Campo di calcio Latte Dolce -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Campo di calcio Latte Dolce</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Impianto sportivo dedicato al calcio, con campi regolamentari e attrezzature per allenamenti e partite amatoriali.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7435934, Lng: 8.5516109</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Sassari Calcio Latte Dolce -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Sassari Calcio Latte Dolce</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Squadra calcistica che rappresenta il quartiere Latte Dolce, offrendo formazione tecnica e organizzando partite locali.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7431227, Lng: 8.5514211</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Istituto Professionale per i Servizi per l'Enogastronomia e l'Ospitalità Alberghiera Sassari -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Istituto Professionale per i Servizi per l'Enogastronomia e l'Ospitalità Alberghiera Sassari</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Istituto che forma specialisti nel settore enogastronomico e dell'ospitalità, offrendo un percorso pratico e orientato al mercato.</p>
+              <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
+              <p class="card-text"><small>Lat: 40.7460171, Lng: 8.5454584</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- scuola di mountain bike -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">scuola di mountain bike</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Scuola che organizza corsi e allenamenti per mountain bike, promuovendo la pratica del ciclismo outdoor in ambienti naturali.</p>
+              <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
+              <p class="card-text"><small>Lat: 40.7919436, Lng: 8.5108075</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- scuola di ciclismo mountain bike e corsa -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">scuola di ciclismo mountain bike e corsa</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Offre programmi integrati di mountain bike e corsa, unendo allenamento aerobico e outdoor per migliorare la resistenza.</p>
+              <p class="card-text"><strong>Categoria:</strong> Istituti Scolastici</p>
+              <p class="card-text"><small>Lat: 40.7928994, Lng: 8.5074261</small></p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1090,28 +1213,28 @@
     <section id="zona-ovest" class="section bg-white">
       <h2 class="text-center mb-4">Zona Ovest</h2>
       <div class="row">
-         <!-- iForm srl - Sede Amministrativa -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">iForm srl - Sede Amministrativa</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Azienda che fornisce soluzioni amministrative e tecnologiche, supportando l'innovazione nel business locale con la propria sede a Sassari.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7360358, Lng: 8.5265802</small></p>
-             </div>
-           </div>
-         </div>
-         <!-- Eagle Association -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">Eagle Association</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Organizzazione che promuove iniziative culturali e sociali, favorendo il networking e lo sviluppo della comunità nella zona Ovest.</p>
-               <p class="card-text"><strong>Categoria:</strong> Altro</p>
-               <p class="card-text"><small>Lat: 40.7307916, Lng: 8.5395807</small></p>
-             </div>
-           </div>
-         </div>
+        <!-- iForm srl - Sede Amministrativa -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">iForm srl - Sede Amministrativa</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Azienda che fornisce soluzioni amministrative e tecnologiche, supportando l'innovazione nel business locale con la propria sede a Sassari.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7360358, Lng: 8.5265802</small></p>
+            </div>
+          </div>
+        </div>
+        <!-- Eagle Association -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Eagle Association</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Organizzazione che promuove iniziative culturali e sociali, favorendo il networking e lo sviluppo della comunità nella zona Ovest.</p>
+              <p class="card-text"><strong>Categoria:</strong> Altro</p>
+              <p class="card-text"><small>Lat: 40.7307916, Lng: 8.5395807</small></p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1119,27 +1242,35 @@
     <section id="zona-sud" class="section">
       <h2 class="text-center mb-4">Zona Sud</h2>
       <div class="row">
-         <!-- associazione sportiva Bulldog Rugby Sassari -->
-         <div class="col-md-4">
-           <div class="card">
-             <div class="card-body">
-               <h5 class="card-title">associazione sportiva Bulldog Rugby Sassari</h5>
-               <p class="card-text"><strong>Descrizione:</strong> Club sportivo dedicato al rugby, impegnato a promuovere la disciplina e a formare giovani atleti, con eventi e allenamenti nella zona Sud di Sassari.</p>
-               <p class="card-text"><strong>Categoria:</strong> Impianti Sportivi</p>
-               <p class="card-text"><small>Lat: 40.7089635, Lng: 8.5553123</small></p>
-             </div>
-           </div>
-         </div>
+        <!-- associazione sportiva Bulldog Rugby Sassari -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">associazione sportiva Bulldog Rugby Sassari</h5>
+              <p class="card-text"><strong>Descrizione:</strong> Club sportivo dedicato al rugby, impegnato a promuovere la disciplina e a formare giovani atleti, con eventi e allenamenti nella zona Sud di Sassari.</p>
+              <p class="card-text"><strong>Categoria:</strong> Impianti Sportivi</p>
+              <p class="card-text"><small>Lat: 40.7089635, Lng: 8.5553123</small></p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="py-4 bg-light text-center">
-    <div class="container">
-      <p>&copy; 2025 Comune di Sassari. Tutti i diritti riservati.</p>
-    </div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Comune di Sassari. Tutti i diritti riservati.</p>
   </footer>
 
+  <!-- Script per il menu mobile -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
